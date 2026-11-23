@@ -246,35 +246,28 @@
 .section-breadcrumb-bar {
     background: rgba(15, 15, 15, 0.95);
     border-bottom: 1px solid rgba(201, 164, 92, 0.3);
-    padding: 6px 260px 6px 16px;
+    padding: 6px 16px;
     display: flex;
     align-items: center;
     gap: 12px;
     font-size: 0.85rem;
     z-index: 100;
 }
-#choice-buttons {
-    padding-right: 145px;
+.audio-bar {
+    display: none !important;
 }
 @media (max-width: 768px) {
-    .btn-auth-floating {
-        top: 8px;
-        right: 10px;
-        font-size: 0.75rem;
-        padding: 4px 10px;
-    }
     .section-breadcrumb-bar {
-        padding: 40px 12px 6px 12px;
+        padding: 6px 12px;
     }
     #choice-buttons {
         padding-right: 0;
-        padding-bottom: 56px;
+        padding-bottom: 8px;
+        max-height: 36vh;
+        overflow-y: auto;
     }
-    .chat-toggle-floating {
-        bottom: 10px;
-        right: 12px;
-        padding: 6px 12px;
-        font-size: 0.8rem;
+    #game-content {
+        line-height: 1.7;
     }
 }
 .breadcrumb-label {
