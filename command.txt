@@ -1,0 +1,43 @@
+# Oathsworn 誓約者 Webapp 常用指令指南
+
+## 🚀 方式一：一鍵全自動啟動（最推薦！）
+電腦開機後，打開終端機（WSL Ubuntu），直接執行專案根目錄的啟動腳本：
+
+```bash
+cd ~/oathsworn-webapp && ./start.sh
+```
+
+這支腳本會自動完成以下三件事：
+1. 啟動 **Caddy Web 伺服器**（Port 8082）
+2. 啟動 **帳號登入系統 ＆ 即時同步伺服器**（Port 8083）
+3. 自動連接 **Cloudflare Tunnel** 並在螢幕上顯示給朋友連線的 `https://xxxx.trycloudflare.com` 網址！
+
+---
+
+## 🛠️ 方式二：手動分步啟動
+
+如果你想分開管理，可以按以下三步啟動：
+
+### 步驟 1：啟動 Web 伺服器
+```bash
+cd ~/oathsworn-webapp/serve && ./serve.sh -d --port 8082
+```
+
+### 步驟 2：啟動帳號登入與即時同步後端
+```bash
+cd ~/oathsworn-webapp
+nohup node sync-server/server.js > sync-server/server.log 2>&1 &
+```
+
+### 步驟 3：啟動外網分享網址（Cloudflare Tunnel）
+```bash
+docker run --rm --net=host cloudflare/cloudflared:latest tunnel --url http://localhost:8082
+```
+
+---
+
+## 🛑 停止服務
+如果想完全關閉所有服務：
+```bash
+docker stop oathsworn-caddy && pkill -f "sync-server/server.js"
+```

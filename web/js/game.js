@@ -134,6 +134,39 @@ class GameEngine {
         return 0;
     }
 
+    getSectionsList() {
+        const list = this._getArr('sectionsList');
+        return list && list.length > 0 ? list.slice() : [0];
+    }
+
+    rewindToSectionIndex(targetIndex) {
+        let list = this._getArr('sectionsList');
+        if (targetIndex < 0 || targetIndex >= list.length - 1) return false;
+        const stepsToRewind = (list.length - 1) - targetIndex;
+        for (let i = 0; i < stepsToRewind; i++) {
+            const curSecNum = this.getCurrentSectionNum();
+            const curSec = this.chapterData.sections[curSecNum];
+            if (curSec) {
+                this.removeCurrentSectionNum(
+                    curSec.locationsAdded,
+                    curSec.isLocation,
+                    curSec.clearLocationsList,
+                    curSec.removeSpecificLocations,
+                    curSec.timeAdded,
+                    this.chapterData.timeList,
+                    this.chapterData.clueLocationSectionNum,
+                    this.chapterData.clue,
+                    this.chapterData.clueLocation
+                );
+            } else {
+                list = this._getArr('sectionsList');
+                list.pop();
+                this._setArr('sectionsList', list);
+            }
+        }
+        return true;
+    }
+
     /**
      * Move forward to a new section. Handles clues, location mutations,
      * deepwood token tracking, and time-triggered redirects.

@@ -102,13 +102,18 @@ const SETTINGS_DEFAULTS = {
     autoScroll:         true,
     autoStartNarration: false,
     autoPlayNext:       false,
-    language:           'en',
+    language:           'zh',
 };
 
 function loadSettings() {
     try {
         const raw = localStorage.getItem(SETTINGS_KEY);
-        return raw ? Object.assign({}, SETTINGS_DEFAULTS, JSON.parse(raw)) : Object.assign({}, SETTINGS_DEFAULTS);
+        const s = raw ? Object.assign({}, SETTINGS_DEFAULTS, JSON.parse(raw)) : Object.assign({}, SETTINGS_DEFAULTS);
+        // If settings was previously saved with default 'en', update it to 'zh'
+        if (!s.language || s.language === 'en') {
+            s.language = 'zh';
+        }
+        return s;
     } catch (e) {
         return Object.assign({}, SETTINGS_DEFAULTS);
     }
@@ -131,7 +136,7 @@ function openSettingsModal() {
 }
 
 let settings = loadSettings();
-let activeLanguage = STRINGS[settings.language] ? settings.language : 'en';
+let activeLanguage = (STRINGS[settings.language] ? settings.language : 'zh');
 
 //
 // ============================================================================
@@ -146,6 +151,7 @@ function S(key, fallback) {
     if (!key) return def;
     if (typeof key === 'number') return def;
     const val = (STRINGS[activeLanguage] && STRINGS[activeLanguage][key])
+             || (STRINGS['zh'] && STRINGS['zh'][key])
              || (STRINGS['en'] && STRINGS['en'][key]);
     return val !== undefined ? val : def;
 }
@@ -163,8 +169,7 @@ function imageUrl(name) {
 }
 
 function audioUrl(name) {
-    if (!name) return null;
-    return AUDIO_BASE + name + '.mp3';
+    return null;
 }
 
 //
@@ -207,16 +212,31 @@ function initHomeScreen() {
     $('#btn-continue-campaign').toggleClass('d-none', !hasSave);
 }
 
-$('#btn-new-campaign').on('click', function() {
-    if (GameState.hasAnyProgress()) {
-        if (!confirm(S('ui.confirm_new_campaign'))) return;
+function requireLogin(callback) {
+    if (window.AuthClient && window.AuthClient.getUser()) {
+        callback();
+    } else {
+        alert('請先登入守誓者帳號以儲存或遊玩戰役！');
+        if (window.AuthClient && typeof window.AuthClient.openModal === 'function') {
+            window.AuthClient.openModal();
+        }
     }
-    GameState.clearAll();
-    loadChapterSelectScreen();
+}
+
+$('#btn-new-campaign').on('click', function() {
+    requireLogin(() => {
+        if (GameState.hasAnyProgress()) {
+            if (!confirm(S('ui.confirm_new_campaign'))) return;
+        }
+        GameState.clearAll();
+        loadChapterSelectScreen();
+    });
 });
 
 $('#btn-continue-campaign').on('click', function() {
-    loadChapterSelectScreen();
+    requireLogin(() => {
+        loadChapterSelectScreen();
+    });
 });
 
 $('.btn-back-home').on('click', function() {
@@ -378,9 +398,84 @@ function renderHudControls() {
 
 function startChapter(chapterNum) {
     currentChapterNum = chapterNum;
+    window.currentChapterNum = chapterNum;
     engine = new GameEngine(chapterNum);
+    window.engine = engine;
     loadSection(false);
     showScreen('screen-game');
+}
+window.startChapter = startChapter;
+window.loadSection = loadSection;
+
+
+//
+// ============================================================================
+//  [BREADCRUMB_BAR] Section History Navigation Track
+// ============================================================================
+//
+
+function renderSectionBreadcrumbs() {
+    const container = document.getElementById('breadcrumb-nodes');
+    if (!container || !engine) return;
+
+    container.innerHTML = '';
+    const sectionsList = engine.getSectionsList();
+    const chapterData = engine.chapterData;
+    const user = window.AuthClient ? window.AuthClient.getUser() : null;
+    const isAdmin = user && (user.role === 'admin' || user.username.toLowerCase() === 'admin');
+
+    sectionsList.forEach((secNum, idx) => {
+        const isCurrent = (idx === sectionsList.length - 1);
+        const node = document.createElement('div');
+        node.className = `breadcrumb-node ${isCurrent ? 'current' : ''} ${(!isAdmin && !isCurrent) ? 'disabled' : ''}`;
+        
+        // Find label
+        const sec = chapterData.sections[secNum];
+        let label = `#${secNum}`;
+        if (secNum === 0) {
+            label = '開端 #0';
+        } else if (sec && sec.sectionTexts && sec.sectionTexts[0]) {
+            const raw = S(sec.sectionTexts[0]);
+            if (raw) {
+                const firstLine = raw.split('\n')[0].trim();
+                if (firstLine.includes('地點') || firstLine.includes('Location')) {
+                    label = firstLine.split('-')[0].trim();
+                } else {
+                    label = `節 #${secNum}`;
+                }
+            }
+        }
+
+        node.innerHTML = `<span>${label}</span>`;
+        if (isCurrent) {
+            node.title = '當前所在位置';
+        } else if (isAdmin) {
+            node.title = `點擊回退至第 ${idx + 1} 步（小節 #${secNum}）`;
+            node.onclick = () => {
+                if (confirm(`確定要將隊伍進度倒退回「${label}」嗎？\n在此之後的進度與選擇將被撤銷重選。`)) {
+                    stopAudio();
+                    const ok = engine.rewindToSectionIndex(idx);
+                    if (ok) {
+                        loadSection(true);
+                    }
+                }
+            };
+        } else {
+            node.title = '只有主控隊長（Admin）可以點選倒退進度';
+        }
+
+        container.appendChild(node);
+
+        if (!isCurrent) {
+            const arrow = document.createElement('span');
+            arrow.className = 'breadcrumb-arrow';
+            arrow.textContent = '➔';
+            container.appendChild(arrow);
+        }
+    });
+
+    // Auto scroll breadcrumb track to the right
+    container.scrollLeft = container.scrollWidth;
 }
 
 function loadSection(goingBack) {
@@ -435,9 +530,18 @@ function loadSection(goingBack) {
     renderPlate();
     renderButtons();
     setupAudio();
+    renderSectionBreadcrumbs();
 
     // Scroll content to top
     document.getElementById('game-content').scrollTop = 0;
+
+    if (typeof window.broadcastGameState === 'function') {
+        window.broadcastGameState({
+            chapterNum: currentChapterNum,
+            sectionNum: currentSectionNum,
+            pathChoice: engine ? engine.getPathChoice() : null
+        });
+    }
 }
 
 //
@@ -552,9 +656,28 @@ function renderButtons() {
     const container = document.getElementById('choice-buttons');
     container.innerHTML = '';
 
+    const user = window.AuthClient ? window.AuthClient.getUser() : null;
+    const isAdmin = user && (user.role === 'admin' || user.username.toLowerCase() === 'admin');
+
     const section = currentSection;
     const choices = section.choices || [];
     const showLocs = section.showLocations;
+
+    // If not Admin, display read-only audience banner instead of actionable buttons
+    if (!isAdmin) {
+        const info = document.createElement('div');
+        info.className = 'w-100 text-center p-3';
+        info.style.background = 'rgba(0, 0, 0, 0.6)';
+        info.style.border = '1px dashed #c9a45c';
+        info.style.borderRadius = '8px';
+        info.style.color = '#c9a45c';
+        info.style.fontSize = '0.9rem';
+        info.innerHTML = `📖 <strong>隊員觀看模式（唯讀）</strong><br><span style="color: #aaa; font-size: 0.8rem;">只有主控隊長（Admin）可以點選分支選擇與前往地點，畫面將隨隊長操作自動推進。</span>`;
+        container.appendChild(info);
+        applyTranslations();
+        requestAnimationFrame(updateScrollHint);
+        return;
+    }
 
     // Choice buttons
     choices.forEach(choice => {
@@ -609,6 +732,12 @@ function updateScrollHint() {
 //
 
 function handleChoiceClick(nextSectionNum) {
+    const user = window.AuthClient ? window.AuthClient.getUser() : null;
+    const isAdmin = user && (user.role === 'admin' || user.username.toLowerCase() === 'admin');
+    if (!isAdmin) {
+        alert('只有主控隊長（Admin）可以操作選擇！');
+        return;
+    }
     stopAudio();
 
     if (nextSectionNum === NEXT_CHAPTER_END) {
@@ -1052,12 +1181,14 @@ $('#btn-bug-copy').on('click', function() {
 //
 
 function applyTranslations() {
-    const strings = STRINGS[activeLanguage] || STRINGS['en'];
-    const en = STRINGS['en'];
+    const strings = (STRINGS && STRINGS[activeLanguage]) ? STRINGS[activeLanguage] : (STRINGS && STRINGS['zh'] ? STRINGS['zh'] : {});
+    const en = (STRINGS && STRINGS['en']) ? STRINGS['en'] : {};
+
+    console.log('[applyTranslations] activeLanguage:', activeLanguage, 'strings count:', Object.keys(strings).length);
 
     document.querySelectorAll('[data-string-key]').forEach(function(el) {
         const key = el.dataset.stringKey;
-        const val = strings[key] || en[key];
+        const val = (strings && strings[key]) || (en && en[key]);
         if (!val) return;
         if (el.dataset.stringParam !== undefined) {
             el.textContent = val.replace('%s', el.dataset.stringParam);
@@ -1075,8 +1206,16 @@ function setLanguage(lang) {
     saveSettings();
     applyTranslations();
     syncLanguageUI();
-    // Rebuild dynamic screens that use S() but aren't covered by data-string-key sweeps
+    // Rebuild chapter list and detail screen if visible
+    if (document.getElementById('screen-chapters') && document.getElementById('screen-chapters').classList.contains('active')) {
+        loadChapterSelectScreen();
+    }
     if (selectedChapterNum !== null) selectChapterDetail(selectedChapterNum);
+    // If currently inside a chapter/section, immediately re-render story text and buttons
+    if (currentSection) {
+        renderPlate();
+        renderButtons();
+    }
 }
 
 function syncLanguageUI() {
@@ -1133,16 +1272,29 @@ function populateLanguageSelect() {
 
 $(function() {
     document.getElementById('app-version').textContent = VERSION;
+    activeLanguage = (STRINGS[settings.language] ? settings.language : 'zh');
     applyTranslations();
     initHomeScreen();
     showScreen('screen-home');
 
-    // Load all language files asynchronously. When done, re-evaluate the
-    // active language (new files may now be registered) and re-apply so
-    // any saved non-English preference takes effect immediately.
+    // Load all language files asynchronously. Only re-apply if the active language wasn't
+    // already loaded synchronously (avoids redundant DOM re-render / flicker on startup).
+    const alreadyLoaded = Boolean(STRINGS[activeLanguage]);
     loadLanguageFiles().then(function() {
-        activeLanguage = STRINGS[settings.language] ? settings.language : 'en';
+        const nextLang = (STRINGS[settings.language] ? settings.language : 'zh');
+        if (alreadyLoaded && nextLang === activeLanguage) return;
+        activeLanguage = nextLang;
         applyTranslations();
+        if (selectedChapterNum !== null) {
+            selectChapterDetail(selectedChapterNum);
+        }
+        if (document.getElementById('screen-chapters') && document.getElementById('screen-chapters').classList.contains('active')) {
+            loadChapterSelectScreen();
+        }
+        if (currentSection) {
+            renderPlate();
+            renderButtons();
+        }
     });
 
     // Start/stop scroll animation based on native audio play/pause
