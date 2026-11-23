@@ -213,14 +213,7 @@ function initHomeScreen() {
 }
 
 function requireLogin(callback) {
-    if (window.AuthClient && window.AuthClient.getUser()) {
-        callback();
-    } else {
-        alert('請先登入守誓者帳號以儲存或遊玩戰役！');
-        if (window.AuthClient && typeof window.AuthClient.openModal === 'function') {
-            window.AuthClient.openModal();
-        }
-    }
+    callback();
 }
 
 $('#btn-new-campaign').on('click', function() {
@@ -422,7 +415,7 @@ function renderSectionBreadcrumbs() {
     const sectionsList = engine.getSectionsList();
     const chapterData = engine.chapterData;
     const user = window.AuthClient ? window.AuthClient.getUser() : null;
-    const isAdmin = user && (user.role === 'admin' || user.username.toLowerCase() === 'admin');
+    const isAdmin = !window.AuthClient || (user && (user.role === 'admin' || user.username.toLowerCase() === 'admin'));
 
     sectionsList.forEach((secNum, idx) => {
         const isCurrent = (idx === sectionsList.length - 1);
@@ -657,7 +650,7 @@ function renderButtons() {
     container.innerHTML = '';
 
     const user = window.AuthClient ? window.AuthClient.getUser() : null;
-    const isAdmin = user && (user.role === 'admin' || user.username.toLowerCase() === 'admin');
+    const isAdmin = !window.AuthClient || (user && (user.role === 'admin' || user.username.toLowerCase() === 'admin'));
 
     const section = currentSection;
     const choices = section.choices || [];
@@ -733,7 +726,7 @@ function updateScrollHint() {
 
 function handleChoiceClick(nextSectionNum) {
     const user = window.AuthClient ? window.AuthClient.getUser() : null;
-    const isAdmin = user && (user.role === 'admin' || user.username.toLowerCase() === 'admin');
+    const isAdmin = !window.AuthClient || (user && (user.role === 'admin' || user.username.toLowerCase() === 'admin'));
     if (!isAdmin) {
         alert('只有主控隊長（Admin）可以操作選擇！');
         return;
