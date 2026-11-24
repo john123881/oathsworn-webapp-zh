@@ -430,9 +430,9 @@ function renderSectionBreadcrumbs() {
         } else if (sec && sec.sectionTexts && sec.sectionTexts[0]) {
             const raw = S(sec.sectionTexts[0]);
             if (raw) {
-                const firstLine = raw.split('\n')[0].trim();
+                const firstLine = raw.split(/\r?\n|\\n/)[0].trim();
                 if (firstLine.includes('地點') || firstLine.includes('Location')) {
-                    label = firstLine.split('-')[0].trim();
+                    label = firstLine.length > 22 ? firstLine.slice(0, 22) + '…' : firstLine;
                 } else {
                     label = `節 #${secNum}`;
                 }
