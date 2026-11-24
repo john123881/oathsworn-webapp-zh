@@ -5020,7 +5020,7 @@ STRINGS["zh"] = {
   "pop8_16_35__b": "獲得 5 枚鐵幣 (Iron)。",
   "pop8_16_38__b": "你獲得一枚防禦指示物 (Defense Token)。",
   "pop8_16_39__b": "你獲得一枚 +2 能量指示物 (+2 Animus Token)。",
-  "pop8_16_3a__b": "將應用程式交給任何守誓者 (Oathsworn)尚未閱讀過場景的玩家。\n\n閱讀對應的場景：\n以下角色請選擇「選項 1」：\n1. 色雷斯劍士 (The Blade)\n2. 典獄長 (The Warden)\n3. 樹人族 (A'Dendri)遊俠 (Ranger)\n4. 巫者 (The Witch)\n5. 牧師 (The Priest)\n6. 傷疤部落流亡者 (The Exile)\n\n以下角色請選擇「選項 2」：\n1. 戰熊 (The Ursine)\n2. 女獵手 (The Huntress)\n3. 樹人族 (A'Dendri)林地少女 (The Grove Maiden)\n4. 滑頭 (The Cur)\n5. 懺悔者 (The Penitent)\n6. 翼民 (The Aviant)預兆者 (The Harbinger)",
+  "pop8_16_3a__b": "將應用程式交給尚未閱讀過場景的守誓者 (Oathsworn) 玩家。\n\n閱讀對應的場景：\n以下角色請選擇「選項 1」：\n1. 劍士 (The Blade)\n2. 典獄長 (The Warden)\n3. 樹人族遊俠 (A'Dendri Ranger)\n4. 巫者 (The Witch)\n5. 牧師 (The Priest)\n6. 流亡者 (The Exile)\n\n以下角色請選擇「選項 2」：\n1. 戰熊 (The Ursine)\n2. 女獵手 (The Huntress)\n3. 樹人族林地少女 (A'Dendri Grove Maiden)\n4. 滑頭 (The Cur)\n5. 懺悔者 (The Penitent)\n6. 翼民預兆者 (Aviant Harbinger)",
   "pop8_17_2__b": "地點 17 - 蛛網中央\n\n如果地點指示物 (Location Token) 5、9、11、17、23 與 27 仍在版圖上，將其移除。",
   "pop8_17_3__b": "每位守誓者 (Oathsworn)進行數輪戰鬥，輪數等於地點 17 生命值 (HP)骰子上數字的一半（無條件進位）。\n\n範例：如果骰子顯示 3，每位守誓者 (Oathsworn)進行兩輪戰鬥。\n\n每輪戰鬥皆對抗防禦值 6。\n\n守誓者 (Oathsworn)每次失敗都會失去 1 點生命值 (HP)。",
   "pop8_17_3__d": "將線索指示物 (Clue Token) 1 放在地圖邊緣的 1 號椅子上。\n\n將線索指示物 (Clue Token) 5 放在地圖邊緣的 5 號椅子上。\n\n將自由團 (Free Company)標記放在地點 10。",
