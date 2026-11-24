@@ -422,21 +422,15 @@ function renderSectionBreadcrumbs() {
         const node = document.createElement('div');
         node.className = `breadcrumb-node ${isCurrent ? 'current' : ''} ${(!isAdmin && !isCurrent) ? 'disabled' : ''}`;
         
-        // Find label
+        // Find label (prefer clean key ID like 2a-10-7)
         const sec = chapterData.sections[secNum];
         let label = `#${secNum}`;
+        const rawKey = (sec && sec.sectionTexts && sec.sectionTexts[0]) || (sec && sec.popUpTexts && sec.popUpTexts[0]) || '';
         if (secNum === 0) {
             label = '開端 #0';
-        } else if (sec && sec.sectionTexts && sec.sectionTexts[0]) {
-            const raw = S(sec.sectionTexts[0]);
-            if (raw) {
-                const firstLine = raw.split(/\r?\n|\\n/)[0].trim();
-                if (firstLine.includes('地點') || firstLine.includes('Location')) {
-                    label = firstLine.length > 22 ? firstLine.slice(0, 22) + '…' : firstLine;
-                } else {
-                    label = `節 #${secNum}`;
-                }
-            }
+        } else if (rawKey) {
+            const m = rawKey.match(/^(?:chp|pop|btn)([0-9]+[a-z]*_[0-9]+_[0-9a-z]+)/i);
+            label = m ? m[1].replace(/_/g, '-') : `#${secNum}`;
         }
 
         node.innerHTML = `<span>${label}</span>`;
