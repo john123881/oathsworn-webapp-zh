@@ -6024,7 +6024,7 @@ STRINGS["zh"] = {
   "pop7a_22_1__b": "進行一輪對抗防禦值 6 的戰鬥。",
   "pop7a_26_1__b": "抽取並結算一張城市事件 (City Event)。",
   "pop7a_27_1__b": "兩名隨機守誓者 (Oathsworn) 失去一枚 +2 能量指示物 (+2 Animus Token)。若他們沒有該指示物，則改為失去一枚隨機戰鬥指示物 (Combat Token)。",
-  "pop7a_30_1__b": "失去線索指示物 (Clue Token) 1 與 2 (Clue Token 1 and 2)。",
+  "pop7a_30_1__b": "失去線索指示物 (Clue Token) 1 與 2。",
   "pop7a_30_1__d": "你們必須搜尋尊者 (Venerator) 的下落。\n\n在地圖上放置地點指示物 (Location Token) 9、11、12、13、14、15、16、17、19、20、21、22、23、26、27。",
   "pop7a_30_3__b": "將你們的自由團 (Free Company) 標記移動至地點 21。",
   "pop7a_4_1__b": "在地點 9 放置一枚編號 2 的追蹤指示物 (Tracker Token)。尊者 (Venerator) 曾在該處被目擊，但已經離開。你們不需要前往該處。",
