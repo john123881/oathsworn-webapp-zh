@@ -21,3 +21,11 @@ __pycache__/
 
 #IDE foo - no more terminal editors
 .idea/
+
+# Local server runtime files
+serve/Caddyfile
+sync-server/node_modules/
+sync-server/package-lock.json
+sync-server/server.log
+sync-server/server.pid
+sync-server/users.db
