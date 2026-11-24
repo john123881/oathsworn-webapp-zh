@@ -7520,5 +7520,9 @@ STRINGS["zh"] = {
   "btn_23": "地點 23",
   "btn_25": "地點 25",
   "btn_26": "地點 26",
-  "btn_27": "地點 27"
+  "btn_27": "地點 27",
+  "btn_neither": "兩者皆不交易",
+  "btn_yes_banksmith": "與鐵匠 (Banksmith) 進行交易，並可選擇是否前往藥劑師 (Apothecary)",
+  "btn_yes_apothecary": "僅與藥劑師 (Apothecary) 進行交易",
+  "pop_banksmith_apothecary": "你可以與鐵匠 (Banksmith) 及／或藥劑師 (Apothecary) 進行交易（若你決定造訪他們，將會消耗時間）。"
 };
