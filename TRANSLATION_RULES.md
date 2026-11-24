@@ -47,7 +47,8 @@
 | **The Exile** | **流亡者** | 角色職業 |
 | **The Harbinger** | **預兆者** | 角色職業 |
 | **The Priest** | **牧師** | 角色職業 |
-| **The Warden** | **典獄長** | 角色職業 |
+| **The Warden** | **典獄長** | 角色職業（嚴禁與 Watcher 混淆） |
+| **The Watcher / Watcher** | **守望者** | 渡鴉尖塔高層稱號（嚴禁翻成典獄長） |
 | **The Warhound** | **戰犬** | 角色夥伴 |
 | **Mute Boy** | **沉默男孩** | 同伴卡角色（嚴禁翻成啞童或啞巴男孩） |
 | **The Huntress** | **女獵手** | 角色職業 |
