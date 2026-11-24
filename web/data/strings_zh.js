@@ -7492,5 +7492,6 @@ STRINGS["zh"] = {
   "pop19m_4_2__b": "失去 2 枚補給方塊 (Supply Cube)。",
   "pop19m_4_3__b": "失去 1 個小隊（以生命值 (HP)骰 (Hit Point Dice) 表示）。",
   "pop19m_5_0__b": "失去 2 個小隊（以生命值 (HP)骰 (Hit Point Dice) 表示）。",
-  "pop19m_5_0__d": "在下一節中，當指示要增加時間時，不要將時間加入時間軌 (Time Track)。"
+  "pop19m_5_0__d": "在下一節中，當指示要增加時間時，不要將時間加入時間軌 (Time Track)。",
+  "location_starter": "地點 %s"
 };
