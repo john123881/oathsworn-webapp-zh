@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oathsworn: Into the Deepwood</title>
+    <link rel="icon" type="image/png" href="data/ui/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/chapters.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/save-data.css">
+    <link rel="stylesheet" href="css/might.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+<style>
+.btn-sync-floating {
+    position: fixed;
+    top: 14px;
+    right: 64px;
+    z-index: 1050;
+    background: rgba(20, 20, 20, 0.85);
+    border: 1px solid #c9a45c;
+    color: #c9a45c;
+    font-size: 0.85rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+.btn-sync-floating:hover {
+    background: #c9a45c;
+    color: #000;
+}
+.btn-sync-floating.active {
+    background: rgba(201, 164, 92, 0.2);
+    border-color: #ffd700;
+    color: #ffd700;
+}
+.sync-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #888;
+}
+.btn-sync-floating.active .sync-dot {
+    background: #00ff88;
+    box-shadow: 0 0 8px #00ff88;
+}
+.sync-badge {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.sync-badge.host {
+    background: rgba(255, 215, 0, 0.2);
+    border: 1px solid #ffd700;
+    color: #ffd700;
+}
+.sync-badge.member {
+    background: rgba(0, 200, 255, 0.2);
+    border: 1px solid #00c8ff;
+    color: #00c8ff;
+}
+</style>
+
+
+<style>
+.btn-auth-floating {
+    position: fixed;
+    top: 14px;
+    right: 64px;
+    z-index: 1050;
+    background: rgba(20, 20, 20, 0.85);
+    border: 1px solid #c9a45c;
+    color: #c9a45c;
+    font-size: 0.85rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+.btn-auth-floating:hover {
+    background: #c9a45c;
+    color: #000;
+}
+.btn-auth-floating.logged-in {
+    border-color: #ffd700;
+    color: #ffd700;
+    background: rgba(201, 164, 92, 0.2);
+}
+</style>
+
+
+<style>
+.chat-toggle-floating {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1040;
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid #c9a45c;
+    color: #c9a45c;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+.chat-toggle-floating:hover {
+    background: #c9a45c;
+    color: #000;
+}
+.chat-unread-badge {
+    background: #ff4757;
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.chat-panel {
+    position: fixed;
+    bottom: 75px;
+    right: 20px;
+    width: 340px;
+    height: 440px;
+    background: rgba(18, 18, 18, 0.96);
+    border: 1px solid #c9a45c;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    z-index: 1045;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.chat-panel.closed {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+}
+.chat-header {
+    background: rgba(30, 30, 30, 0.9);
+    border-bottom: 1px solid rgba(201, 164, 92, 0.3);
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #c9a45c;
+    font-size: 0.9rem;
+}
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.chat-message-row {
+    display: flex;
+    flex-direction: column;
+    max-width: 85%;
+}
+.chat-message-row.me {
+    align-self: flex-end;
+}
+.chat-message-row.other {
+    align-self: flex-start;
+}
+.chat-bubble {
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    word-break: break-word;
+}
+.chat-message-row.me .chat-bubble {
+    background: #3a2e1d;
+    border: 1px solid #c9a45c;
+    color: #fff;
+    border-bottom-right-radius: 2px;
+}
+.chat-message-row.other .chat-bubble {
+    background: #222;
+    border: 1px solid #444;
+    color: #eee;
+    border-bottom-left-radius: 2px;
+}
+.chat-meta {
+    font-size: 0.72rem;
+    color: #888;
+    margin-bottom: 2px;
+}
+.chat-time {
+    font-size: 0.68rem;
+    color: #666;
+    margin-left: 4px;
+}
+.chat-badge-admin {
+    color: #ffd700;
+    background: rgba(255, 215, 0, 0.2);
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+}
+.chat-system-msg {
+    text-align: center;
+    color: #777;
+    font-size: 0.78rem;
+    margin: 4px 0;
+}
+.chat-input-bar {
+    padding: 10px;
+    background: rgba(25, 25, 25, 0.9);
+    border-top: 1px solid rgba(201, 164, 92, 0.2);
+    display: flex;
+    gap: 8px;
+}
+</style>
+
+
+<style>
+.section-breadcrumb-bar {
+    background: rgba(15, 15, 15, 0.95);
+    border-bottom: 1px solid rgba(201, 164, 92, 0.3);
+    padding: 6px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    z-index: 100;
+}
+.audio-bar {
+    display: none !important;
+}
+@media (max-width: 768px) {
+    .section-breadcrumb-bar {
+        padding: 6px 12px;
+    }
+    #choice-buttons {
+        padding-right: 0;
+        padding-bottom: 8px;
+        max-height: 36vh;
+        overflow-y: auto;
+    }
+    #game-content {
+        line-height: 1.7;
+    }
+}
+.breadcrumb-label {
+    color: #c9a45c;
+    font-weight: bold;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+.breadcrumb-nodes-scroll {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 2px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #c9a45c transparent;
+}
+.breadcrumb-nodes-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+.breadcrumb-nodes-scroll::-webkit-scrollbar-thumb {
+    background: #c9a45c;
+    border-radius: 2px;
+}
+.breadcrumb-node {
+    background: rgba(35, 35, 35, 0.9);
+    border: 1px solid #555;
+    color: #bbb;
+    padding: 3px 10px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 0.78rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+.breadcrumb-node:hover {
+    background: #c9a45c;
+    color: #000;
+    border-color: #c9a45c;
+}
+.breadcrumb-node.current {
+    background: rgba(201, 164, 92, 0.25);
+    border-color: #ffd700;
+    color: #ffd700;
+    font-weight: bold;
+    cursor: default;
+}
+.breadcrumb-node.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.breadcrumb-node.disabled:hover {
+    background: rgba(35, 35, 35, 0.9);
+    color: #bbb;
+    border-color: #555;
+}
+.breadcrumb-arrow {
+    color: #666;
+    font-size: 0.7rem;
+}
+</style>
+
+</head>
+<body>
+
+<!-- ============================================================
+     HOME SCREEN
+     ============================================================ -->
+<div id="screen-home" class="screen active">
+    <div class="home-wrap d-flex flex-column align-items-center justify-content-center h-100">
+        <div class="text-center mb-5">
+            <img src="data/ui/oathsworn_logo.png" alt="Oathsworn: Into the Deepwood" class="home-logo">
+        </div>
+        <div class="d-flex flex-column gap-3 home-button-col">
+            <button id="btn-new-campaign" class="btn btn-primary-game" data-string-key="ui.new_campaign">新戰役</button>
+            <button id="btn-continue-campaign" class="btn btn-primary-game d-none" data-string-key="ui.continue_campaign">繼續戰役</button>
+            <a href="characters.html" class="btn btn-ghost-game" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">角色行動卡圖鑑</a>
+            <button id="btn-might-home" class="btn btn-ghost-game" data-string-key="ui.might_decks">力量牌庫</button>
+            <button id="btn-view-save" class="btn btn-ghost-game" data-string-key="ui.view_saved_data">檢視存檔資料</button>
+            <button id="btn-settings" class="btn btn-ghost-game" data-string-key="ui.settings">設定</button>
+        </div>
+        <script>
+            (function() {
+                try {
+                    var raw = localStorage.getItem('oathsworn_save');
+                    if (!raw) return;
+                    var save = JSON.parse(raw);
+                    if (!save || !save.chapters) return;
+                    for (var ch in save.chapters) {
+                        var cs = save.chapters[ch];
+                        if (cs && cs.sectionsList && cs.sectionsList.length > 0 &&
+                            !(cs.sectionsList.length === 1 && cs.sectionsList[0] === 0)) {
+                            document.getElementById('btn-continue-campaign').classList.remove('d-none');
+                            break;
+                        }
+                    }
+                } catch (e) {}
+            })();
+        </script>
+        <p class="home-credit">
+            Web Companion + Transpiler "thing" created by <a href="https://github.com/TheTacoScott/oathsworn-webapp" target="_blank" rel="noopener" class="home-credit-link">Scott Powers</a>
+            <br>
+            Based on the incredible work of <a href="https://www.shadowborne-games.com/" target="_blank" rel="noopener" class="home-credit-link">Shadowborne Games</a>
+            <br>
+            <span id="app-version" class="home-version"></span>
+        </p>
+    </div>
+</div>
+
+
+<!-- ============================================================
+     SAVE DATA SCREEN
+     ============================================================ -->
+<div id="screen-save-data" class="screen">
+    <div class="container py-3">
+        <div class="d-flex align-items-center mb-4 gap-3">
+            <button id="btn-save-back" class="btn btn-ghost-game" data-string-key="ui.back">返回</button>
+            <h4 class="mb-0 screen-heading" data-string-key="ui.saved_data">存檔資料</h4>
+            <button id="btn-copy-save" class="btn btn-ghost-game ms-auto" data-string-key="ui.copy_json">複製 JSON</button>
+        </div>
+        <div id="save-data-content">
+            <!-- populated by loadSaveDataScreen() -->
+        </div>
+        <details class="mt-4">
+            <summary class="save-data-summary" data-string-key="ui.raw_json">Raw JSON</summary>
+            <pre id="save-data-raw" class="save-data-raw"></pre>
+        </details>
+    </div>
+</div>
+
+
+<!-- ============================================================
+     CHAPTER SELECT SCREEN
+     ============================================================ -->
+<div id="screen-chapters" class="screen">
+    <div class="chapters-layout">
+        <div class="chapters-list-pane">
+            <div class="chapters-list-header">
+                <button id="btn-chapters-back" class="btn btn-ghost-game btn-back-home" data-string-key="ui.back">返回</button>
+                <h4 class="mb-0 screen-heading" data-string-key="ui.select_chapter">選擇章節</h4>
+                <button id="btn-settings-chapters" class="btn btn-ghost-game ms-auto" title="Settings"><img src="data/ui/settings.png" class="settings-icon" alt="Settings"></button>
+            </div>
+            <div class="chapter-list-wrapper">
+                <div id="chapter-list" class="chapters-list-scroll">
+                    <!-- populated by loadChapterSelectScreen() -->
+                </div>
+                <div id="chapter-list-fade-top"    class="choice-fade choice-fade-top">&#9650; <span data-string-key="ui.scroll_more">scroll for more</span></div>
+                <div id="chapter-list-fade-bottom" class="choice-fade choice-fade-bottom"><span data-string-key="ui.scroll_more">scroll for more</span> &#9660;</div>
+            </div>
+        </div>
+        <div class="chapters-detail-pane">
+            <div id="chapter-detail">
+                <!-- populated by selectChapterDetail() -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================================
+     GAME SCREEN
+     ============================================================ -->
+<div id="screen-game" class="screen game-screen">
+    <div class="game-panel d-flex flex-column">
+
+        
+        <!-- [BREADCRUMB_BAR] Section History Navigation Track -->
+        <div id="section-breadcrumb-track" class="section-breadcrumb-bar flex-shrink-0">
+            <div class="breadcrumb-label">⏳ 故事足跡:</div>
+            <div id="breadcrumb-nodes" class="breadcrumb-nodes-scroll">
+                <!-- populated by renderSectionBreadcrumbs() -->
+            </div>
+        </div>
+
+        <!-- Game header bar: Back | {Path A/B | Time | Clue tokens} | nav buttons -->
+        <div class="game-header px-3 flex-shrink-0">
+            <!-- Left: Back button -->
+            <div class="game-header-left">
+                <button id="btn-game-back" class="btn btn-ghost-game">返回</button>
+            </div>
+            <!-- Center cluster: [A · ! 1 2 3] | TIME | [4 5 6 X · B] -->
+            <div class="hud-cluster">
+                <div class="hud-cluster-left">
+                    <button class="clue-token clue-token-exclaim" data-clue-index="6"><span class="ct-bang">!</span></button>
+                    <button class="clue-token" data-clue-index="0"><span class="ct-num">1</span></button>
+                    <button class="clue-token" data-clue-index="1"><span class="ct-num">2</span></button>
+                    <button class="clue-token" data-clue-index="2"><span class="ct-num">3</span></button>
+                    <button class="path-btn path-btn-a" id="btn-path-a"><span class="path-letter">A</span></button>
+                </div>
+                <div class="time-tracker-display">
+                    <img src="data/ui/deepwood_token.png" class="time-token-img" alt="Time">
+                    <span id="game-time" class="time-token-num">0</span>
+                </div>
+                <div class="hud-cluster-right">
+                    <button class="path-btn path-btn-b" id="btn-path-b"><span class="path-letter">B</span></button>
+                    <button class="clue-token" data-clue-index="3"><span class="ct-num">4</span></button>
+                    <button class="clue-token" data-clue-index="4"><span class="ct-num">5</span></button>
+                    <button class="clue-token" data-clue-index="5"><span class="ct-num">6</span></button>
+                    <button class="clue-token clue-token-x" data-clue-index="7"><span class="ct-x">X</span></button>
+                </div>
+            </div>
+            <!-- Right: nav buttons -->
+            <div class="game-header-right">
+                <div class="d-flex align-items-center gap-2">
+                    <button id="btn-settings-game" class="btn btn-ghost-game" title="Settings"><img src="data/ui/settings.png" class="settings-icon" alt="Settings"></button>
+                    <button id="btn-bug-report" class="btn btn-ghost-game" title="Bug Report" aria-label="Bug Report"><svg class="bug-report-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><circle cx="8" cy="4.5" r="2.5"/><ellipse cx="8" cy="11" rx="3.5" ry="4"/><path d="M5.5 3.2 Q4 1.5 2.5 1M10.5 3.2 Q12 1.5 13.5 1" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M4.5 8.5 L1 7M4.5 11 L1 11M4.5 13.5 L1 15" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round"/><path d="M11.5 8.5 L15 7M11.5 11 L15 11M11.5 13.5 L15 15" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round"/></svg></button>
+                    <button id="btn-might-open" class="btn btn-ghost-game">Might</button>
+                    <button id="btn-game-menu" class="btn btn-ghost-game" data-string-key="ui.exit_chapter_select">退出</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter title (shown only for section 0) -->
+        <div id="chapter-title-area" class="chapter-title-area text-center flex-shrink-0 d-none">
+            <h2 id="chapter-title-text" class="chapter-title"></h2>
+            <p id="chapter-author-text" class="chapter-author mb-0"></p>
+        </div>
+
+        <!-- Scrollable plate content with flanking HUD drawers -->
+        <div class="content-area-wrapper">
+            <div id="game-content" class="game-content">
+                <!-- populated by renderPlate() -->
+            </div>
+            <div id="content-fade-top"    class="content-fade content-fade-top"></div>
+            <div id="content-fade-bottom" class="content-fade content-fade-bottom"></div>
+        </div>
+
+        <!-- Auto-scroll paused indicator -->
+        <div id="autoscroll-paused" class="autoscroll-paused-bar d-none" style="display: none !important;" data-string-key="ui.autoscroll_paused">
+            Auto-scroll paused &middot; click to resume
+        </div>
+
+        <!-- Audio controls + choice/location buttons -->
+        <div class="game-bottom flex-shrink-0 px-3 pb-3">
+            <div id="audio-controls" class="audio-native-area d-none" style="display: none !important;">
+                <div class="d-flex align-items-center justify-content-center gap-2 mb-1">
+                    <button id="btn-audio-prev" class="btn btn-audio-nav px-1" title="Previous / Restart"><img src="data/ui/play_previous.png" class="audio-nav-icon" alt="Previous"></button>
+                    <span id="audio-track-label" class="audio-track-label"></span>
+                    <button id="btn-audio-next" class="btn btn-audio-nav px-1" title="Next track"><img src="data/ui/play_next.png" class="audio-nav-icon" alt="Next"></button>
+                </div>
+                <audio id="audio-native" controls class="w-100"></audio>
+            </div>
+            <div class="choice-area-wrapper">
+                <div id="choice-buttons" class="choice-buttons-area d-flex flex-column gap-2">
+                    <!-- populated by renderButtons() -->
+                </div>
+                <div id="choice-fade-top"    class="choice-fade choice-fade-top">&#9650; <span data-string-key="ui.scroll_more">scroll for more</span></div>
+                <div id="choice-fade-bottom" class="choice-fade choice-fade-bottom"><span data-string-key="ui.scroll_more">scroll for more</span> &#9660;</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ============================================================
+     SETTINGS MODAL
+     ============================================================ -->
+
+<!-- ==========================================================================
+     SYNC MODAL
+     ========================================================================== -->
+
+<!-- ==========================================================================
+     AUTH MODAL
+     ========================================================================== -->
+<div id="auth-modal" class="bug-modal-overlay" style="display:none">
+    <div class="settings-modal" style="max-width: 420px;">
+        <div class="bug-modal-header">
+            <span class="bug-modal-title">🛡️ 守誓者帳號系統</span>
+            <button id="btn-auth-close" class="btn btn-ghost-game btn-sm">&#10005;</button>
+        </div>
+        <div class="settings-modal-body" style="padding: 24px;">
+            <div id="auth-form-box" class="d-flex flex-column gap-3">
+                <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 5px;">
+                    登入帳號以在不同手機或電腦間<strong>自動雲端同步</strong>你的戰役進度與冒險記錄。
+                </p>
+                <div id="auth-error-msg" style="color: #ff6b6b; font-size: 0.85rem; min-height: 1.2rem;"></div>
+                <div class="d-flex flex-column gap-2">
+                    <input id="auth-input-user" type="text" placeholder="使用者帳號" class="form-control" style="background: rgba(0,0,0,0.6); border: 1px solid #c9a45c; color: #fff; padding: 10px 14px;">
+                    <input id="auth-input-pass" type="password" placeholder="密碼" class="form-control" style="background: rgba(0,0,0,0.6); border: 1px solid #c9a45c; color: #fff; padding: 10px 14px;">
+                </div>
+                <div class="d-flex gap-2 mt-2">
+                    <button id="btn-auth-login" class="btn btn-primary-game w-50" style="padding: 10px;">登入</button>
+                    <button id="btn-auth-register" class="btn btn-ghost-game w-50" style="padding: 10px;">註冊新帳號</button>
+                </div>
+            </div>
+
+            <div id="auth-user-box" class="d-none d-flex flex-column align-items-center gap-3">
+                <div style="font-size: 2.5rem;">🛡️</div>
+                <div style="font-size: 1.1rem; color: #ffd700;">守誓者：<strong id="auth-current-username">--</strong></div>
+                <p style="color: #aaa; font-size: 0.85rem; text-align: center; margin: 0;">
+                    你的戰役進度已與雲端同步。當你在遊戲中推進進度時，系統會自動在背景為你儲存。
+                </p>
+                <button id="btn-auth-manual-save" class="btn btn-ghost-game w-100" style="font-size: 0.9rem;">
+                    ☁️ 手動備份當前進度至雲端
+                </button>
+                <button id="btn-auth-logout" class="btn btn-ghost-game text-danger w-100" style="border-color: rgba(220,53,69,0.4); font-size: 0.85rem;">
+                    登出帳號
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="sync-modal" class="bug-modal-overlay" style="display:none">
+    <div class="settings-modal" style="max-width: 440px;">
+        <div class="bug-modal-header">
+            <span class="bug-modal-title">⚔️ 即時同步房間</span>
+            <button id="btn-sync-close" class="btn btn-ghost-game btn-sm">&#10005;</button>
+        </div>
+        <div class="settings-modal-body" style="padding: 20px;">
+            <div id="sync-join-box" class="d-flex flex-column gap-3">
+                <p style="color: #bbb; font-size: 0.9rem; margin-bottom: 0; line-height: 1.5;">
+                    與隊友同步遊戲進度！隊長前進或選擇地點時，所有隊員的手機將會自動跟隨翻頁。
+                </p>
+                <button id="btn-sync-create" class="btn btn-primary-game" style="font-size: 1rem; padding: 12px; margin-top: 10px;">
+                    👑 建立隊長房間（我是主控）
+                </button>
+                <div class="text-center" style="color: #666; font-size: 0.85rem; margin: 5px 0;">— 或加入已有房間 —</div>
+                <div class="d-flex gap-2">
+                    <input id="sync-input-code" type="number" placeholder="輸入 4 位房號" class="form-control" style="background: rgba(0,0,0,0.5); border: 1px solid #c9a45c; color: #fff; text-align: center; font-size: 1.1rem; letter-spacing: 2px;">
+                    <button id="btn-sync-join" class="btn btn-ghost-game" style="white-space: nowrap; padding: 0 20px;">
+                        加入房間
+                    </button>
+                </div>
+            </div>
+
+            <div id="sync-room-info" class="d-none d-flex flex-column align-items-center gap-3">
+                <div class="d-flex align-items-center gap-2">
+                    <span id="sync-role-badge" class="sync-badge">隊長</span>
+                    <span id="sync-member-count" style="color: #888; font-size: 0.85rem;">1 人在線</span>
+                </div>
+                <div style="font-size: 0.9rem; color: #aaa;">房間號碼：</div>
+                <div id="sync-room-code-display" style="font-size: 2.4rem; font-weight: bold; color: #c9a45c; letter-spacing: 4px; font-family: monospace;">----</div>
+                <button id="btn-sync-copy-link" class="btn btn-ghost-game w-100" style="font-size: 0.9rem; margin-top: 5px;">
+                    📋 複製邀請連結給朋友
+                </button>
+                <button id="btn-sync-leave" class="btn btn-ghost-game text-danger w-100" style="border-color: rgba(220,53,69,0.4); font-size: 0.85rem;">
+                    離開房間
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="settings-modal" class="bug-modal-overlay" style="display:none">
+    <div class="settings-modal">
+        <div class="bug-modal-header">
+            <span class="bug-modal-title">設定</span>
+            <button id="btn-settings-close" class="btn btn-ghost-game btn-sm">&#10005;</button>
+        </div>
+        <div class="settings-modal-body">
+            <div class="settings-row">
+                <label class="settings-label">
+                    <input type="checkbox" id="setting-auto-scroll" class="settings-checkbox">
+                    <span class="settings-label-text" data-string-key="ui.auto_scroll">自動捲動</span>
+                </label>
+                <p class="settings-desc" data-string-key="ui.auto_scroll_desc">Scroll the page automatically as narration plays. Scrolling manually will disable it for the current section.</p>
+            </div>
+            <div class="settings-row">
+                <label class="settings-label">
+                    <input type="checkbox" id="setting-auto-narration" class="settings-checkbox">
+                    <span class="settings-label-text" data-string-key="ui.auto_narration">自動播放旁白</span>
+                </label>
+                <p class="settings-desc" data-string-key="ui.auto_narration_desc">Begin playing narration automatically when a new section loads.</p>
+            </div>
+            <div class="settings-row">
+                <label class="settings-label">
+                    <input type="checkbox" id="setting-auto-next" class="settings-checkbox">
+                    <span class="settings-label-text" data-string-key="ui.auto_next">自動播放下一首</span>
+                </label>
+                <p class="settings-desc" data-string-key="ui.auto_next_desc">Advance to the next audio track automatically when one finishes.</p>
+            </div>
+            <div class="settings-row">
+                <label class="settings-label">
+                    <span class="settings-label-text" data-string-key="ui.language">語言</span>
+                </label>
+                <select id="setting-language" class="settings-language-select">
+                    <!-- populated by populateLanguageSelect() -->
+                </select>
+                <p class="settings-desc" data-string-key="ui.language_desc">Switch the story text and interface language. Falls back to English for any missing keys.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================================
+     IMAGE LIGHTBOX
+     ============================================================ -->
+<div id="image-lightbox" class="image-lightbox-overlay" style="display:none">
+    <img id="image-lightbox-img" class="image-lightbox-img" src="" alt="">
+    <p class="image-lightbox-hint" data-string-key="ui.lightbox_close">Click anywhere to close</p>
+</div>
+
+
+<!-- ============================================================
+     MIGHT DECKS - overlay (global, populated by might.js)
+     ============================================================ -->
+<div id="might-overlay" class="might-overlay" style="display:none"></div>
+
+
+<!-- ============================================================
+     BUG REPORT MODAL
+     ============================================================ -->
+<div id="bug-report-modal" class="bug-modal-overlay" style="display:none">
+    <div class="bug-modal">
+        <div class="bug-modal-header">
+            <span class="bug-modal-title" data-string-key="ui.file_bug_report">File a Bug Report</span>
+            <button id="btn-bug-modal-close" class="btn btn-ghost-game btn-sm">&#10005;</button>
+        </div>
+        <div class="bug-modal-body">
+            <p class="bug-modal-instructions" data-string-key="ui.bug_instructions">Copy the debug info below and paste it into a new GitHub issue:</p>
+            <a href="https://github.com/TheTacoScott/oathsworn-webapp/issues" target="_blank" rel="noopener" class="bug-modal-link">&#8594; <span data-string-key="ui.open_github_issues">Open GitHub Issues</span></a>
+            <textarea id="bug-report-text" class="bug-report-textarea" readonly spellcheck="false"></textarea>
+        </div>
+        <div class="bug-modal-footer">
+            <button id="btn-bug-copy" class="btn btn-ghost-game" data-string-key="ui.copy_to_clipboard">Copy to Clipboard</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================================
+     SCRIPTS (order matters: data -> engine -> jQuery -> bootstrap -> main)
+     ============================================================ -->
+<script src="data/strings.js"></script>
+<script src="data/strings_zh.js?v=1795493240"></script>
+<script src="js/ui_strings.js?v=1795146401"></script>
+<script src="js/lang-loader.js"></script>
+<script src="data/chapters/init.js"></script>
+<script src="data/chapters/chapter_1.js"></script>
+<script src="data/chapters/chapter_2.js"></script>
+<script src="data/chapters/chapter_3.js"></script>
+<script src="data/chapters/chapter_4.js"></script>
+<script src="data/chapters/chapter_5.js"></script>
+<script src="data/chapters/chapter_6.js"></script>
+<script src="data/chapters/chapter_7.js"></script>
+<script src="data/chapters/chapter_8.js"></script>
+<script src="data/chapters/chapter_9.js"></script>
+<script src="data/chapters/chapter_10.js"></script>
+<script src="data/chapters/chapter_11.js"></script>
+<script src="data/chapters/chapter_22.js"></script>
+<script src="data/chapters/chapter_12.js"></script>
+<script src="data/chapters/chapter_13.js"></script>
+<script src="data/chapters/chapter_14.js"></script>
+<script src="data/chapters/chapter_15.js"></script>
+<script src="data/chapters/chapter_16.js"></script>
+<script src="data/chapters/chapter_17.js"></script>
+<script src="data/chapters/chapter_18.js"></script>
+<script src="data/chapters/chapter_19.js"></script>
+<script src="data/chapters/chapter_20.js"></script>
+<script src="data/chapters/chapter_21.js"></script>
+<script src="data/images.js"></script>
+<script src="js/version.js"></script>
+<script src="js/game.js?v=1795157073"></script>
+<script src="js/patch_util.js"></script>
+<script src="js/patches.js"></script>
+<script src="js/might.js"></script>
+<script src="js/jquery-3.7.1.min.js"></script>
+<!-- Auth & WebSocket Sync disabled for direct standalone play -->
+<!-- <script src="js/auth.js?v=1795149891"></script> -->
+<!-- <script src="js/sync.js?v=1795152797"></script> -->
+<script src="js/main.js?v=1795488900"></script>
+<script src="js/responsive.js"></script>
+
+
+<!-- ==========================================================================
+     [TEAM_CHAT] Floating Team Chat Room
+     ========================================================================== -->
+<div id="chat-toggle-btn" class="chat-toggle-floating d-none">
+    💬 隊伍頻道
+    <span id="chat-unread-badge" class="chat-unread-badge" style="display: none;">0</span>
+</div>
+
+<div id="chat-panel" class="chat-panel closed">
+    <div class="chat-header">
+        <div class="d-flex align-items-center gap-2">
+            <span>🛡️ <strong>自由團即時作戰頻道</strong></span>
+        </div>
+        <button id="btn-chat-close" class="btn btn-ghost-game btn-sm" style="padding: 2px 8px; font-size: 1rem;">&#10005;</button>
+    </div>
+    <div id="chat-messages-container" class="chat-messages">
+        <div class="chat-system-msg">已連線至作戰頻道。在此討論戰術、骰點結果與分歧抉擇！</div>
+    </div>
+    <div class="chat-input-bar">
+        <input id="chat-input-text" type="text" placeholder="輸入訊息... (Enter 發送)" class="form-control" autocomplete="off" style="background: rgba(0,0,0,0.6); border: 1px solid #c9a45c; color: #fff; font-size: 0.9rem;">
+        <button id="btn-chat-send" class="btn btn-primary-game" style="white-space: nowrap; padding: 6px 14px; font-size: 0.85rem;">發送</button>
+    </div>
+</div>
+
+</body>
+</html>
