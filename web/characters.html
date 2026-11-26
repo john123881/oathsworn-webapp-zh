@@ -77,6 +77,27 @@
       border-color: var(--gold);
       font-weight: bold;
     }
+    .edition-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .edition-btn {
+      background: var(--panel);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 8px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+    .edition-btn.active {
+      background: var(--gold);
+      color: #14110e;
+      border-color: var(--gold);
+      font-weight: bold;
+    }
     main {
       max-width: 1200px;
       margin: 0 auto;
@@ -192,6 +213,7 @@
 
   <script src="data/characters_images.js"></script>
   <script src="data/characters_lore.js"></script>
+  <script src="data/characters_v2.js"></script>
   <script>
     const CLASSES = [
       {
@@ -570,7 +592,16 @@
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
 
+    let currentClassId = "01_Warden";
+    let currentEdition = "v1";
+
+    function switchEdition(ed) {
+      currentEdition = ed;
+      render(currentClassId);
+    }
+
     function render(id) {
+      currentClassId = id;
       document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.id === id));
       const c = CLASSES.find(x => x.id === id) || CLASSES[0];
       const imgs = (window.CHARACTER_IMAGES && window.CHARACTER_IMAGES[c.id]) || [];
@@ -598,7 +629,44 @@
         }
       }
 
+      const v2 = window.CHARACTER_V2 && window.CHARACTER_V2[c.id];
+      const editionTabsHtml = `
+        <div class="edition-tabs">
+          <button class="edition-btn ${currentEdition === "v1" ? "active" : ""}" onclick="switchEdition('v1')">舊版（1st Edition）</button>
+          <button class="edition-btn ${currentEdition === "v2" ? "active" : ""}" onclick="switchEdition('v2')">新版（2nd Edition 修正版${v2 && v2.cards.length ? ` · ${v2.cards.length} 張` : ""}）</button>
+        </div>
+      `;
+
+      if (currentEdition === "v2" && v2) {
+        contentEl.innerHTML = `
+          ${editionTabsHtml}
+          <div class="class-header">
+            <h2>${c.name} — 2 版修正與新增</h2>
+            <div class="en-sub">${c.en} (2nd Edition Upgrade Pack)</div>
+          </div>
+          <div class="card-box" style="margin-bottom:20px;">
+            <h3>2 版改動總覽</h3>
+            <div>${v2.summary}</div>
+          </div>
+          <div class="levels-list">
+            ${v2.changes.map(([title, desc]) => `<div class="level-row"><strong>${title}：</strong>${desc}</div>`).join("")}
+          </div>
+          ${v2.cards.length ? `
+            <h3 class="gallery-title">2 版修正／新增卡圖（點擊圖片可放大，共 ${v2.cards.length} 張）</h3>
+            <div class="gallery">
+              ${v2.cards.map(src => `
+                <div class="gallery-item" onclick="openLightbox('${src}')">
+                  <img src="${src}" loading="lazy" alt="${c.name} 2nd Ed" />
+                </div>
+              `).join("")}
+            </div>
+          ` : ""}
+        `;
+        return;
+      }
+
       contentEl.innerHTML = `
+        ${editionTabsHtml}
         <div class="class-header">
           <h2>${c.name}</h2>
           <div class="en-sub">${c.en}</div>
