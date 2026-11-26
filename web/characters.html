@@ -573,12 +573,24 @@
       document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.id === id));
       const c = CLASSES.find(x => x.id === id) || CLASSES[0];
       const imgs = (window.CHARACTER_IMAGES && window.CHARACTER_IMAGES[c.id]) || [];
+      const headerImgs = c.levels.length ? imgs.slice(0, 4) : imgs;
+      const levelImgs = c.levels.length ? imgs.slice(4) : [];
+      const perLevel = c.levels.length ? Math.max(1, Math.ceil(levelImgs.length / c.levels.length)) : 0;
 
       contentEl.innerHTML = `
         <div class="class-header">
           <h2>${c.name}</h2>
           <div class="en-sub">${c.en}</div>
         </div>
+        ${headerImgs.length ? `
+          <div class="gallery" style="margin-bottom:20px;">
+            ${headerImgs.map(src => `
+              <div class="gallery-item" onclick="openLightbox('${src}')">
+                <img src="${src}" loading="lazy" alt="${c.name}" />
+              </div>
+            `).join("")}
+          </div>
+        ` : ""}
         <div class="info-grid">
           <div class="card-box">
             <h3>特殊能力 (Special Abilities)</h3>
@@ -592,17 +604,25 @@
         </div>
         ${c.levels.length ? `
           <div class="levels-list">
-            ${c.levels.map(([lv, desc]) => `<div class="level-row"><strong>${lv}：</strong>${desc}</div>`).join("")}
+            ${c.levels.map(([lv, desc], i) => {
+              const slice = levelImgs.slice(i * perLevel, (i + 1) * perLevel);
+              return `
+                <div class="level-row">
+                  <div style="margin-bottom:${slice.length ? "12px" : "0"};"><strong>${lv}：</strong>${desc}</div>
+                  ${slice.length ? `
+                    <div class="gallery">
+                      ${slice.map(src => `
+                        <div class="gallery-item" onclick="openLightbox('${src}')">
+                          <img src="${src}" loading="lazy" alt="${lv}" />
+                        </div>
+                      `).join("")}
+                    </div>
+                  ` : ""}
+                </div>
+              `;
+            }).join("")}
           </div>
         ` : ""}
-        <h3 class="gallery-title">角色與行動卡圖鑑（點擊圖片可放大，共 ${imgs.length} 張）</h3>
-        <div class="gallery">
-          ${imgs.map(src => `
-            <div class="gallery-item" onclick="openLightbox('${src}')">
-              <img src="${src}" loading="lazy" alt="${c.name}" />
-            </div>
-          `).join("")}
-        </div>
       `;
     }
 
