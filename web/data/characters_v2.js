@@ -278,7 +278,8 @@ window.CHARACTER_V2 = {
           "assets/characters_v2/05_Ranger_v2_05.jpg",
           "assets/characters_v2/05_Ranger_v1_0cost.png",
           "assets/characters_v2/05_Ranger_v1_thread.png",
-          "assets/characters_v2/05_Ranger_v1_lv1_3cost.png"
+          "assets/characters_v2/05_Ranger_v1_lv1_3cost.png",
+          "assets/characters_v2/05_Ranger_v1_multishot.png"
         ]
       },
       {
