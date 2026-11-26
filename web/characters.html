@@ -574,9 +574,29 @@
       document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.id === id));
       const c = CLASSES.find(x => x.id === id) || CLASSES[0];
       const imgs = (window.CHARACTER_IMAGES && window.CHARACTER_IMAGES[c.id]) || [];
-      const headerImgs = c.levels.length ? imgs.slice(0, 4) : imgs;
-      const levelImgs = c.levels.length ? imgs.slice(4) : [];
-      const perLevel = c.levels.length ? Math.max(1, Math.ceil(levelImgs.length / c.levels.length)) : 0;
+      let headerImgs = imgs, levelBuckets = [];
+      if (c.levels.length === 5) {
+        if (c.id === "03_Witch") {
+          headerImgs = imgs.slice(0, imgs.length - 13);
+          const rest = imgs.slice(imgs.length - 13);
+          levelBuckets = [rest.slice(0, 6), rest.slice(6, 8), rest.slice(8, 9), rest.slice(9, 11), rest.slice(11, 13)];
+        } else if (c.id === "12_Huntress") {
+          headerImgs = imgs.slice(0, 4);
+          const rest = imgs.slice(4);
+          levelBuckets = [rest.slice(0, 4), rest.slice(4, 6), rest.slice(6, 8), rest.slice(8, 10), rest.slice(10, 12)];
+        } else {
+          const lv1End = Math.max(0, imgs.length - 4);
+          const lv1Start = Math.max(0, lv1End - 4);
+          headerImgs = imgs.slice(0, lv1Start);
+          levelBuckets = [
+            imgs.slice(lv1Start, lv1End),
+            imgs.slice(lv1End, lv1End + 1),
+            imgs.slice(lv1End + 1, lv1End + 2),
+            imgs.slice(lv1End + 2, lv1End + 3),
+            imgs.slice(lv1End + 3, lv1End + 4)
+          ];
+        }
+      }
 
       contentEl.innerHTML = `
         <div class="class-header">
@@ -612,7 +632,7 @@
         ${c.levels.length ? `
           <div class="levels-list">
             ${c.levels.map(([lv, desc], i) => {
-              const slice = levelImgs.slice(i * perLevel, (i + 1) * perLevel);
+              const slice = levelBuckets[i] || [];
               return `
                 <div class="level-row">
                   <div style="margin-bottom:${slice.length ? "12px" : "0"};"><strong>${lv}：</strong>${desc}</div>
