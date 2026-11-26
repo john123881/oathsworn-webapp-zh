@@ -191,6 +191,7 @@
   </div>
 
   <script src="data/characters_images.js"></script>
+  <script src="data/characters_lore.js"></script>
   <script>
     const CLASSES = [
       {
@@ -602,6 +603,12 @@
             <div style="margin-top:8px;">${c.bg}</div>
           </div>
         </div>
+        ${(window.CHARACTER_LORE && window.CHARACTER_LORE[c.id]) ? `
+          <details style="background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:24px;">
+            <summary style="cursor:pointer;color:var(--gold);font-weight:bold;user-select:none;">📖 展開完整背景故事與玩法詳解 (Background &amp; Lore)</summary>
+            <div style="margin-top:12px;white-space:pre-line;color:var(--text);font-size:0.96rem;line-height:1.75;">${window.CHARACTER_LORE[c.id]}</div>
+          </details>
+        ` : ""}
         ${c.levels.length ? `
           <div class="levels-list">
             ${c.levels.map(([lv, desc], i) => {
