@@ -25,68 +25,88 @@ window.CHARACTER_V2 = {
     ]
   },
   "01_Warden": {
-    summary: "典獄長（The Warden）2 版共修正 5 張行動卡與 1 張橫式同伴卡（以下依等級與冷卻 0→3 排列）。",
-    sections: [
+    "summary": "典獄長（The Warden）2 版共修正 5 張行動卡與 1 張橫式同伴卡（以下依等級與冷卻 0→3 排列）。",
+    "sections": [
       {
-        title: "Lv 1 初始牌（依 CD 1 → 3）",
-        desc: "<b>CD 1 · 奪地（Claimed Ground，2 靈氣 / 1 防）</b>：抽取等於相鄰敵人數量的白牌；每擁有 1 枚防禦指示物獲得 1 次重抽，另可花費 1 枚防禦指示物重抽任意張牌 1 次。每抽到一張數字 2，使其中一名不同的相鄰敵人失去 1 點生命值。<br><br><b>CD 3 · 盾擊（Shield Bash，3 靈氣 / 3 防）</b>：擊退 3。若裝備盾牌，視為徒手攻擊但盾牌每有 1 點防禦便獲得 1 顆白骰／牌；若目標撞到守誓者或盟友，友軍不會失去生命值。不需裝備盾牌亦可施放。",
-        imgs: [
+        "title": "Lv 1 初始牌（依 CD 1 → 3）",
+        "desc": "<b>CD 1 · 奪地（Claimed Ground，2 靈氣 / 1 防）</b>：抽取等於相鄰敵人數量的白牌；每擁有 1 枚防禦指示物獲得 1 次重抽，另可花費 1 枚防禦指示物重抽任意張牌 1 次。每抽到一張數字 2，使其中一名不同的相鄰敵人失去 1 點生命值。<br><br><b>CD 3 · 盾擊（Shield Bash，3 靈氣 / 3 防）</b>：擊退 3。若裝備盾牌，視為徒手攻擊但盾牌每有 1 點防禦便獲得 1 顆白骰／牌；若目標撞到守誓者或盟友，友軍不會失去生命值。不需裝備盾牌亦可施放。<br><br><b>〔沿用 1 版未改動〕</b>：0 費基礎牌、守護（Guard）、鎖鏈拖拽（Chain Drag）、弧形斬（Arcing Strike）、嘲諷（Taunt）。",
+        "imgs": [
           "assets/characters_v2/01_Warden_v2_03.jpg",
           "assets/characters_v2/01_Warden_v2_04.jpg"
         ]
       },
       {
-        title: "Lv 2 解鎖（依 CD 1 → 2）",
-        desc: "<b>CD 1 · 堅守陣地！（Stand Fast!，1 靈氣 / 1 防）</b>：打斷技——任意時機，使 3 格內一名友方角色獲得 1 枚防禦指示物。（下方攻擊：+2 靈氣）<br><br><b>CD 2 · 萬眾一心！（As One!，4 靈氣 / 2 防）</b>：攻擊技——4 格內另一名友方角色可移動 2 格；若移動後在攻擊你目標的射程內，可將 1 點自身力量加入這次攻擊，或改為花費 1 靈氣／任意戰鬥指示物將其全部力量加入攻擊（額外力量牌計入失手且可暴擊）。",
-        imgs: [
+        "title": "Lv 2 解鎖（依 CD 1 → 2）",
+        "desc": "<b>CD 1 · 堅守陣地！（Stand Fast!，1 靈氣 / 1 防）</b>：打斷技——任意時機，使 3 格內一名友方角色獲得 1 枚防禦指示物。（下方攻擊：+2 靈氣）<br><br><b>CD 2 · 萬眾一心！（As One!，4 靈氣 / 2 防）</b>：攻擊技——4 格內另一名友方角色可移動 2 格；若移動後在攻擊你目標的射程內，可將 1 點自身力量加入這次攻擊，或改為花費 1 靈氣／任意戰鬥指示物將其全部力量加入攻擊（額外力量牌計入失手且可暴擊）。",
+        "imgs": [
           "assets/characters_v2/01_Warden_v2_05.jpg",
           "assets/characters_v2/01_Warden_v2_01.jpg"
         ]
       },
       {
-        title: "Lv 10 解鎖（CD 2）",
-        desc: "<b>CD 2 · 鎖鏈束縛（Chained，1 靈氣 / 2 防）</b>：打斷技——在另一名友方角色對 2 格內敵人抽傷害前，朝該敵人移動 2 格；若移動結束時與該敵人相鄰，該敵人對本次傷害視同防禦 -1。（下方攻擊：+2 靈氣）",
-        imgs: [
+        "title": "Lv 5 解鎖（全數沿用 1 版未改動）",
+        "desc": "<b>〔沿用 1 版未改動〕</b>：反射（Reflection）、最終裁決（Final Verdict）。",
+        "imgs": []
+      },
+      {
+        "title": "Lv 10 解鎖（CD 2）",
+        "desc": "<b>CD 2 · 鎖鏈束縛（Chained，1 靈氣 / 2 防）</b>：打斷技——在另一名友方角色對 2 格內敵人抽傷害前，朝該敵人移動 2 格；若移動結束時與該敵人相鄰，該敵人對本次傷害視同防禦 -1。（下方攻擊：+2 靈氣）<br><br><b>〔沿用 1 版未改動〕</b>：干預（Intervention）。",
+        "imgs": [
           "assets/characters_v2/01_Warden_v2_02.jpg"
         ]
       },
       {
-        title: "同伴卡（Companion Card · Lv 5）",
-        desc: "<b>鎖鏈束縛（Chained）</b>：0 靈氣打斷——移動 3 格至 3 格內敵人，若相鄰則本次傷害防禦 -1。<br><b>奪地（Claimed Ground）</b>：抽等於相鄰敵人數的白牌，每有 1 枚防禦指示物獲得 2 次重抽；每抽到 2 令一名不同敵人失去 1 血。",
-        imgs: [
+        "title": "Lv 15 解鎖（全數沿用 1 版未改動）",
+        "desc": "<b>〔沿用 1 版未改動〕</b>：守住防線！（Hold the Line!）、尋心者（Heart Seeker）。",
+        "imgs": []
+      },
+      {
+        "title": "同伴卡（Companion Card · Lv 5）",
+        "desc": "<b>鎖鏈束縛（Chained）</b>：0 靈氣打斷——移動 3 格至 3 格內敵人，若相鄰則本次傷害防禦 -1。<br><b>奪地（Claimed Ground）</b>：抽等於相鄰敵人數的白牌，每有 1 枚防禦指示物獲得 2 次重抽；每抽到 2 令一名不同敵人失去 1 血。",
+        "imgs": [
           "assets/characters_v2/01_Warden_v2_06.jpg"
         ]
       }
     ]
   },
   "02_Ursus": {
-    summary: "戰熊（The Ursus Warbear）2 版共修正 3 張行動卡與 2 張橫式同伴卡（以下依等級與冷卻排列）。",
-    sections: [
+    "summary": "戰熊（The Ursus Warbear）2 版共修正 3 張行動卡與 2 張橫式同伴卡（以下依等級與冷卻排列）。",
+    "sections": [
       {
-        title: "Lv 5 解鎖（CD 3）",
-        desc: "<b>CD 3 · 嗜血狂熱（Feeding Frenzy，3 靈氣 / 4 防）</b>：唯有在本階段尚未攻擊過時才可打出。發動攻擊（+2 傷害）；若目標死亡或失去至少 2 點生命值，你回復 1 點生命值，且本階段不可再進行任何回合（仍可使用打斷技）。",
-        imgs: [
+        "title": "Lv 1 初始牌（全數沿用 1 版未改動）",
+        "desc": "<b>〔沿用 1 版未改動〕</b>：0 費基礎牌、野性咆哮（Feral Roar）、橫掃（Swipe）、鐵皮（Ironhide）、投擲（Toss）、撕咬（Bite）、挑戰（Challenge）。",
+        "imgs": []
+      },
+      {
+        "title": "Lv 2 解鎖（全數沿用 1 版未改動）",
+        "desc": "<b>〔沿用 1 版未改動〕</b>：猛擊（Batter）、原始狂怒（Primal Rage）。",
+        "imgs": []
+      },
+      {
+        "title": "Lv 5 解鎖（CD 3）",
+        "desc": "<b>CD 3 · 嗜血狂熱（Feeding Frenzy，3 靈氣 / 4 防）</b>：唯有在本階段尚未攻擊過時才可打出。發動攻擊（+2 傷害）；若目標死亡或失去至少 2 點生命值，你回復 1 點生命值，且本階段不可再進行任何回合（仍可使用打斷技）。<br><br><b>〔沿用 1 版未改動〕</b>：撕裂（Rend）。",
+        "imgs": [
           "assets/characters_v2/02_Ursus_v2_01.jpg"
         ]
       },
       {
-        title: "Lv 10 解鎖（CD 2）",
-        desc: "<b>CD 2 · 推倒（Topple，2 靈氣 / 3 防）</b>：徒手攻擊。你可選擇一個障礙物作為目標；若攻擊總傷害達 6 以上，將 7 格範圍模板放置於與該障礙物任一邊相鄰的位置，範圍內角色每佔據 1 格便失去 1 點生命值，隨後將該障礙物與模板從圖板移除。",
-        imgs: [
+        "title": "Lv 10 解鎖（CD 2）",
+        "desc": "<b>CD 2 · 推倒（Topple，2 靈氣 / 3 防）</b>：徒手攻擊。你可選擇一個障礙物作為目標；若攻擊總傷害達 6 以上，將 7 格範圍模板放置於與該障礙物任一邊相鄰的位置，範圍內角色每佔據 1 格便失去 1 點生命值，隨後將該障礙物與模板從圖板移除。<br><br><b>〔沿用 1 版未改動〕</b>：干預（Intervention）。",
+        "imgs": [
           "assets/characters_v2/02_Ursus_v2_02.jpg"
         ]
       },
       {
-        title: "Lv 15 解鎖（CD 2）",
-        desc: "<b>CD 2 · 戰爭之路（Warpath，4 靈氣 / 3 防）</b>：衝鋒貫穿 4，強化 x2（Empowered x2）。此攻擊同時鎖定衝鋒路徑相鄰六角格中的所有角色；攻擊一次並套用至所有目標。",
-        imgs: [
+        "title": "Lv 15 解鎖（CD 2）",
+        "desc": "<b>CD 2 · 戰爭之路（Warpath，4 靈氣 / 3 防）</b>：衝鋒貫穿 4，強化 x2（Empowered x2）。此攻擊同時鎖定衝鋒路徑相鄰六角格中的所有角色；攻擊一次並套用至所有目標。<br><br><b>〔沿用 1 版未改動〕</b>：偉大壯舉（Great Feat）。",
+        "imgs": [
           "assets/characters_v2/02_Ursus_v2_03.jpg"
         ]
       },
       {
-        title: "同伴卡（Companion Cards · Lv 10 & Lv 15）",
-        desc: "<b>Lv 10 · 原始狂怒（Primal Rage） ／ 撕咬（Bite）</b>：攻擊敵人正面時連擊兩次（僅一擊可觸發決心規則）；或 0 靈氣打斷令相鄰敵人傷害 -3。<br><b>Lv 15 · 投擲（Toss） ／ 戰爭之路（War Path）</b>：若目標扣血則相鄰所有角色朝同方向擊退 2；或衝鋒貫穿 4 附帶強化 x2 並波及路徑鄰格。",
-        imgs: [
+        "title": "同伴卡（Companion Cards · Lv 10 & Lv 15）",
+        "desc": "<b>Lv 10 · 原始狂怒（Primal Rage） ／ 撕咬（Bite）</b>：攻擊敵人正面時連擊兩次（僅一擊可觸發決心規則）；或 0 靈氣打斷令相鄰敵人傷害 -3。<br><b>Lv 15 · 投擲（Toss） ／ 戰爭之路（War Path）</b>：若目標扣血則相鄰所有角色朝同方向擊退 2；或衝鋒貫穿 4 附帶強化 x2 並波及路徑鄰格。",
+        "imgs": [
           "assets/characters_v2/02_Ursus_v2_04.jpg",
           "assets/characters_v2/02_Ursus_v2_05.jpg"
         ]
@@ -94,52 +114,52 @@ window.CHARACTER_V2 = {
     ]
   },
   "03_Witch": {
-    summary: "巫者（The Witch）2 版共修正 17 張行動卡與 1 張橫式同伴卡（以下依等級與冷卻 0→3 排列）。",
-    sections: [
+    "summary": "巫者（The Witch）2 版共修正 17 張行動卡與 1 張橫式同伴卡（以下依等級與冷卻 0→3 排列）。",
+    "sections": [
       {
-        title: "Lv 1 初始牌 · 基礎（CD 0 → 1）",
-        desc: "<b>CD 0 · 猛擊（Lash Out，? 靈氣 / 1 防）</b>：3 靈氣＝射程 3 攻擊；1 靈氣＝流轉 1 張牌；2 靈氣＝重置力量牌庫；1 靈氣＝在相鄰空格放置 1 格冰或火格。<br><br><b>CD 1 · 元素充盈（Elemental Suffusion，2 靈氣 / 2 防）</b>：若 3 格內沒有火格則放 1 格火格，且若 3 格內沒有水格則放 1 格水格。（下方：射程 2 攻擊）",
-        imgs: [
+        "title": "Lv 1 初始牌 · 基礎（CD 0 → 1）",
+        "desc": "<b>CD 0 · 猛擊（Lash Out，? 靈氣 / 1 防）</b>：3 靈氣＝射程 3 攻擊；1 靈氣＝流轉 1 張牌；2 靈氣＝重置力量牌庫；1 靈氣＝在相鄰空格放置 1 格冰或火格。<br><br><b>CD 1 · 元素充盈（Elemental Suffusion，2 靈氣 / 2 防）</b>：若 3 格內沒有火格則放 1 格火格，且若 3 格內沒有水格則放 1 格水格。（下方：射程 2 攻擊）<br><br><b>〔沿用 1 版未改動〕</b>：動能反射（Kinetic Reflection）。",
+        "imgs": [
           "assets/characters_v2/03_Witch_v2_12.jpg",
           "assets/characters_v2/03_Witch_v2_02.jpg"
         ]
       },
       {
-        title: "Lv 1 初始牌 · 冰系（CD 1 → 3）",
-        desc: "<b>CD 1 · 封凍（Encapsulate，2 靈氣 / 2 防）</b>：選擇 3 格內站在水格上的敵人，抽 1 白牌（可使用重抽指示物）；若為數字則敵人失去 1 血，若為暴擊則失去 3 血；若目標扣血則移除該水格。<br><b>CD 2 · 冰錐（Ice Spike，3 靈氣 / 2 防）</b>：額外消耗 1 水格。射程 3 直線貫穿，第一格全傷，後續每多一格忽略最高數字力量牌（大型敵人最多受傷兩次）。<br><b>CD 3 · 彗星（Comet，2 靈氣 / 3 防）</b>：額外消耗 1 水格，射程 5。抽傷害前可移除 3 格內任意數量水格，每移除 1 格便 +2 傷害。",
-        imgs: [
+        "title": "Lv 1 初始牌 · 冰系（CD 1 → 3）",
+        "desc": "<b>CD 1 · 封凍（Encapsulate，2 靈氣 / 2 防）</b>：選擇 3 格內站在水格上的敵人，抽 1 白牌（可使用重抽指示物）；若為數字則敵人失去 1 血，若為暴擊則失去 3 血；若目標扣血則移除該水格。<br><b>CD 2 · 冰錐（Ice Spike，3 靈氣 / 2 防）</b>：額外消耗 1 水格。射程 3 直線貫穿，第一格全傷，後續每多一格忽略最高數字力量牌（大型敵人最多受傷兩次）。<br><b>CD 3 · 彗星（Comet，2 靈氣 / 3 防）</b>：額外消耗 1 水格，射程 5。抽傷害前可移除 3 格內任意數量水格，每移除 1 格便 +2 傷害。<br><br><b>〔沿用 1 版未改動〕</b>：連鎖閃電（Chain Lightning）。",
+        "imgs": [
           "assets/characters_v2/03_Witch_v2_04.jpg",
           "assets/characters_v2/03_Witch_v2_10.jpg",
           "assets/characters_v2/03_Witch_v2_01.jpg"
         ]
       },
       {
-        title: "Lv 1 初始牌 · 火系（CD 1）",
-        desc: "<b>CD 1 · 流螢（Fireflies，3 靈氣 / 2 防）</b>：額外消耗 1 火格。3 隻流螢鎖定 4 格內 1～3 名敵人，每隻抽 1 紅牌；每抽到 1 個空白令敵人失去 1 血（可花 1 靈氣重抽所有空白，不可重複重抽）。",
-        imgs: [
+        "title": "Lv 1 初始牌 · 火系（CD 1）",
+        "desc": "<b>CD 1 · 流螢（Fireflies，3 靈氣 / 2 防）</b>：額外消耗 1 火格。3 隻流螢鎖定 4 格內 1～3 名敵人，每隻抽 1 紅牌；每抽到 1 個空白令敵人失去 1 血（可花 1 靈氣重抽所有空白，不可重複重抽）。<br><br><b>〔沿用 1 版未改動〕</b>：焚化波（Incineration Wave）、火球（Fireball）、烈焰鞭（Flaming Whip）。",
+        "imgs": [
           "assets/characters_v2/03_Witch_v2_05.jpg"
         ]
       },
       {
-        title: "Lv 2 解鎖（CD 1 → 2）",
-        desc: "<b>CD 1 · 冰牆（Ice Wall，0 靈氣 / 2 防）</b>：額外消耗 1 水格。打斷——當敵人選擇鎖定 4 格內友方角色時，改為鎖定次近的守誓者；或花 1 靈氣在 2 格內空格放 1 水格。<br><b>CD 2 · 火牆（Firewall，2 靈氣 / 2 防）</b>：額外消耗 1 火格。在直線上放置最多 3 格火格（其中一格須在 2 格內，不可放於已佔據格）。<br><b>CD 2 · 念動力（Telekinesis，2 靈氣 / 2 防）</b>：額外消耗 1 水或 1 火格。選擇 4 格內角色抽 2 黃牌（可重抽），將其朝任意直線方向擊退等於總和的距離。",
-        imgs: [
+        "title": "Lv 2 解鎖（CD 1 → 2）",
+        "desc": "<b>CD 1 · 冰牆（Ice Wall，0 靈氣 / 2 防）</b>：額外消耗 1 水格。打斷——當敵人選擇鎖定 4 格內友方角色時，改為鎖定次近的守誓者；或花 1 靈氣在 2 格內空格放 1 水格。<br><b>CD 2 · 火牆（Firewall，2 靈氣 / 2 防）</b>：額外消耗 1 火格。在直線上放置最多 3 格火格（其中一格須在 2 格內，不可放於已佔據格）。<br><b>CD 2 · 念動力（Telekinesis，2 靈氣 / 2 防）</b>：額外消耗 1 水或 1 火格。選擇 4 格內角色抽 2 黃牌（可重抽），將其朝任意直線方向擊退等於總和的距離。",
+        "imgs": [
           "assets/characters_v2/03_Witch_v2_11.jpg",
           "assets/characters_v2/03_Witch_v2_07.jpg",
           "assets/characters_v2/03_Witch_v2_17.jpg"
         ]
       },
       {
-        title: "Lv 5 解鎖（CD 2）",
-        desc: "<b>CD 2 · 避雷針（Lightning Rod，2 靈氣 / 2 防）</b>：額外消耗 2 水格。指定圖板任意格，抽 1 黃牌（不暴擊）與方向骰（皆可重抽），目標格依結果偏移，對距離偏移後目標格最近的角色發動無限射程 +4 傷害攻擊。",
-        imgs: [
+        "title": "Lv 5 解鎖（CD 2）",
+        "desc": "<b>CD 2 · 避雷針（Lightning Rod，2 靈氣 / 2 防）</b>：額外消耗 2 水格。指定圖板任意格，抽 1 黃牌（不暴擊）與方向骰（皆可重抽），目標格依結果偏移，對距離偏移後目標格最近的角色發動無限射程 +4 傷害攻擊。<br><br><b>〔沿用 1 版未改動〕</b>：火蠕蟲（Fireworm）。",
+        "imgs": [
           "assets/characters_v2/03_Witch_v2_13.jpg"
         ]
       },
       {
-        title: "Lv 10 解鎖（CD 1 → 3）",
-        desc: "<b>CD 1 · 元素武器（Elemental Weapon，2 靈氣 / 2 防）</b>：消耗 2 火或 2 水格。打斷——友軍對 3 格內單一目標抽傷害前，該攻擊造成雙倍傷害，但若命中則攻擊者失去 1 血。<br><b>CD 1 · 冰川護盾（Glacial Shield，0 靈氣 / 2 防）</b>：消耗 1 水格。打斷——3 格內友軍抽傷害後，所有防禦效果翻倍且可用你自己的防禦幫他人減傷。<br><b>CD 2 · 白霜（Hoarfrost，3 靈氣 / 2 防）</b>：選擇 3 格內任意水格，對每個鄰接角色抽 1 白牌（不暴擊），抽到 2 則失去 1 血並移除 1 水格。<br><b>CD 3 · 超新星（Supernova，3 靈氣 / 3 防）</b>：消耗 3 火格。攻擊自身 2 格內所有角色，相鄰目標 +3 傷、其餘 +1 傷。",
-        imgs: [
+        "title": "Lv 10 解鎖（CD 1 → 3）",
+        "desc": "<b>CD 1 · 元素武器（Elemental Weapon，2 靈氣 / 2 防）</b>：消耗 2 火或 2 水格。打斷——友軍對 3 格內單一目標抽傷害前，該攻擊造成雙倍傷害，但若命中則攻擊者失去 1 血。<br><b>CD 1 · 冰川護盾（Glacial Shield，0 靈氣 / 2 防）</b>：消耗 1 水格。打斷——3 格內友軍抽傷害後，所有防禦效果翻倍且可用你自己的防禦幫他人減傷。<br><b>CD 2 · 白霜（Hoarfrost，3 靈氣 / 2 防）</b>：選擇 3 格內任意水格，對每個鄰接角色抽 1 白牌（不暴擊），抽到 2 則失去 1 血並移除 1 水格。<br><b>CD 3 · 超新星（Supernova，3 靈氣 / 3 防）</b>：消耗 3 火格。攻擊自身 2 格內所有角色，相鄰目標 +3 傷、其餘 +1 傷。",
+        "imgs": [
           "assets/characters_v2/03_Witch_v2_03.jpg",
           "assets/characters_v2/03_Witch_v2_08.jpg",
           "assets/characters_v2/03_Witch_v2_09.jpg",
@@ -147,30 +167,30 @@ window.CHARACTER_V2 = {
         ]
       },
       {
-        title: "Lv 15 解鎖（CD 3）",
-        desc: "<b>CD 3 · 烈焰風暴（Fire Storm，3 靈氣 / 3 防）</b>：消耗 4 火格（不可有相鄰敵人）。射程 3 內選一格，攻擊該格 2 格內所有六角格。<br><b>CD 3 · 閃電風暴（Lightning Storm，3 靈氣 / 3 防）</b>：消耗 4 水格，無限射程。抽 2 紅牌（可重抽），在前弧選擇最多等於總和的格子進行攻擊。<br><b>CD 3 · 念動內爆（Telekine Implosion，4 靈氣 / 3 防）</b>：消耗 3 水或 3 火格。3 格內選一格，其 2 格內所有角色朝該格直線擊退 1 格。",
-        imgs: [
+        "title": "Lv 15 解鎖（CD 3）",
+        "desc": "<b>CD 3 · 烈焰風暴（Fire Storm，3 靈氣 / 3 防）</b>：消耗 4 火格（不可有相鄰敵人）。射程 3 內選一格，攻擊該格 2 格內所有六角格。<br><b>CD 3 · 閃電風暴（Lightning Storm，3 靈氣 / 3 防）</b>：消耗 4 水格，無限射程。抽 2 紅牌（可重抽），在前弧選擇最多等於總和的格子進行攻擊。<br><b>CD 3 · 念動內爆（Telekine Implosion，4 靈氣 / 3 防）</b>：消耗 3 水或 3 火格。3 格內選一格，其 2 格內所有角色朝該格直線擊退 1 格。",
+        "imgs": [
           "assets/characters_v2/03_Witch_v2_06.jpg",
           "assets/characters_v2/03_Witch_v2_14.jpg",
           "assets/characters_v2/03_Witch_v2_16.jpg"
         ]
       },
       {
-        title: "同伴卡（Companion Card · Lv 15）",
-        desc: "<b>念動內爆（Telekine Implosion） ／ 念動力（Telekinesis）</b>：花 1 戰鬥指示物將 3 格內目標格周圍 2 格內所有角色向內擊退 1（每場限 3 次）；或選 4 格內目標抽 2 黃牌並朝任意方向擊退總和距離。",
-        imgs: [
+        "title": "同伴卡（Companion Card · Lv 15）",
+        "desc": "<b>念動內爆（Telekine Implosion） ／ 念動力（Telekinesis）</b>：花 1 戰鬥指示物將 3 格內目標格周圍 2 格內所有角色向內擊退 1（每場限 3 次）；或選 4 格內目標抽 2 黃牌並朝任意方向擊退總和距離。",
+        "imgs": [
           "assets/characters_v2/03_Witch_v2_18.jpg"
         ]
       }
     ]
   },
   "04_Priest": {
-    summary: "牧師（The Priest）2 版需替換新版玩家圖板，並修正 10 張行動卡與 3 張橫式同伴卡（以下依等級與冷卻 0→3 排列）。",
-    sections: [
+    "summary": "牧師（The Priest）2 版需替換新版玩家圖板，並修正 10 張行動卡與 3 張橫式同伴卡（以下依等級與冷卻 0→3 排列）。",
+    "sections": [
       {
-        title: "Lv 1 初始牌（依 CD 0 → 3）",
-        desc: "<b>CD 0 · 重擊（Heavy Blow，? 靈氣 / 0 防）</b>：3 靈氣＝攻擊；1 靈氣＝流轉 1 張牌；2 靈氣＝重置力量牌庫。<br><b>CD 2 · 守護祈禱（Prayer of Protection，0 靈氣 / 2 防）</b>：打斷——對 3 格內角色抽傷害前，使其獲得 3 點防禦；若防禦提升成功減少了扣血，你失去 1 點生命。<br><b>CD 2 · 榮耀之重（Weight of Glory，4 靈氣 / 2 防）</b>：擊退 2；若目標在擊退過程中撞到任何物體，3 格內一名角色獲得 1 枚防禦指示物。<br><b>CD 3 · 絕望祈禱（Desperate Prayer，2 靈氣 / 3 防）</b>：選擇 3 格內友軍進行基礎檢定（難度＝目標目前血量 +2），每成功 1 次回復 1 血；若對方回血，你失去 1 血（最多可用 1 枚重抽指示物）。",
-        imgs: [
+        "title": "Lv 1 初始牌（依 CD 0 → 3）",
+        "desc": "<b>CD 0 · 重擊（Heavy Blow，? 靈氣 / 0 防）</b>：3 靈氣＝攻擊；1 靈氣＝流轉 1 張牌；2 靈氣＝重置力量牌庫。<br><b>CD 2 · 守護祈禱（Prayer of Protection，0 靈氣 / 2 防）</b>：打斷——對 3 格內角色抽傷害前，使其獲得 3 點防禦；若防禦提升成功減少了扣血，你失去 1 點生命。<br><b>CD 2 · 榮耀之重（Weight of Glory，4 靈氣 / 2 防）</b>：擊退 2；若目標在擊退過程中撞到任何物體，3 格內一名角色獲得 1 枚防禦指示物。<br><b>CD 3 · 絕望祈禱（Desperate Prayer，2 靈氣 / 3 防）</b>：選擇 3 格內友軍進行基礎檢定（難度＝目標目前血量 +2），每成功 1 次回復 1 血；若對方回血，你失去 1 血（最多可用 1 枚重抽指示物）。<br><br><b>〔沿用 1 版未改動〕</b>：正義推進（Righteous Advance）、聖柱與聖道（Pillar and Path）、格擋（Fend）。",
+        "imgs": [
           "assets/characters_v2/04_Priest_v2_02.jpg",
           "assets/characters_v2/04_Priest_v2_05.jpg",
           "assets/characters_v2/04_Priest_v2_09.jpg",
@@ -178,39 +198,39 @@ window.CHARACTER_V2 = {
         ]
       },
       {
-        title: "Lv 2 解鎖（CD 2 → 3）",
-        desc: "<b>CD 2 · 殉道者（Martyr，0 靈氣 / 2 防）</b>：打斷——抽階段牌後或敵人移動前，強迫 6 格內一名敵人改以你為目標（階段牌以你為目標結算）。<br><b>CD 3 · 聖療術（Lay on Hands，1 靈氣 / 3 防）</b>：選擇相鄰友軍進行附帶 1 次免費重抽的基礎檢定（難度＝目標血量 +2），每成功回 1 血並自損 1 血（最多可用 2 枚重抽指示物）。下方：移動 3。",
-        imgs: [
+        "title": "Lv 2 解鎖（CD 2 → 3）",
+        "desc": "<b>CD 2 · 殉道者（Martyr，0 靈氣 / 2 防）</b>：打斷——抽階段牌後或敵人移動前，強迫 6 格內一名敵人改以你為目標（階段牌以你為目標結算）。<br><b>CD 3 · 聖療術（Lay on Hands，1 靈氣 / 3 防）</b>：選擇相鄰友軍進行附帶 1 次免費重抽的基礎檢定（難度＝目標血量 +2），每成功回 1 血並自損 1 血（最多可用 2 枚重抽指示物）。下方：移動 3。",
+        "imgs": [
           "assets/characters_v2/04_Priest_v2_04.jpg",
           "assets/characters_v2/04_Priest_v2_03.jpg"
         ]
       },
       {
-        title: "Lv 5 解鎖（CD 2）",
-        desc: "<b>CD 2 · 顯聖容（Transfiguration，3 靈氣 / 2 防）</b>：從圖板上移除最多 2 名相鄰雜魚（不計為因遭遇戰特殊規則而被擊殺）。下方攻擊：強化 x2。",
-        imgs: [
+        "title": "Lv 5 解鎖（CD 2）",
+        "desc": "<b>CD 2 · 顯聖容（Transfiguration，3 靈氣 / 2 防）</b>：從圖板上移除最多 2 名相鄰雜魚（不計為因遭遇戰特殊規則而被擊殺）。下方攻擊：強化 x2。<br><br><b>〔沿用 1 版未改動〕</b>：祝福（Blessing）。",
+        "imgs": [
           "assets/characters_v2/04_Priest_v2_07.jpg"
         ]
       },
       {
-        title: "Lv 10 解鎖（CD 1 → 3）",
-        desc: "<b>CD 1 · 狂熱（Zeal，3 靈氣 / 1 防）</b>：若此攻擊命中且抽到兩張相同數字的力量牌，傷害結算後可立即再攻擊一次（每次使用限觸發 1 次）。<br><b>CD 3 · 祝聖（Sanctify，4 靈氣 / 3 防）</b>：擊退 2、強化 x3，鎖定所有相鄰敵人；若使任何敵人扣血，你也失去 1 血。下方：失去 1 血使場上任一角色回 1 血（-2 靈氣）。",
-        imgs: [
+        "title": "Lv 10 解鎖（CD 1 → 3）",
+        "desc": "<b>CD 1 · 狂熱（Zeal，3 靈氣 / 1 防）</b>：若此攻擊命中且抽到兩張相同數字的力量牌，傷害結算後可立即再攻擊一次（每次使用限觸發 1 次）。<br><b>CD 3 · 祝聖（Sanctify，4 靈氣 / 3 防）</b>：擊退 2、強化 x3，鎖定所有相鄰敵人；若使任何敵人扣血，你也失去 1 血。下方：失去 1 血使場上任一角色回 1 血（-2 靈氣）。",
+        "imgs": [
           "assets/characters_v2/04_Priest_v2_10.jpg",
           "assets/characters_v2/04_Priest_v2_06.jpg"
         ]
       },
       {
-        title: "Lv 15 解鎖（CD 3）",
-        desc: "<b>CD 3 · 活力光環（Vitality Aura，4 靈氣 / 3 防）</b>：選擇 4 格內任意名其他守誓者／盟友進行附帶重抽的基礎檢定（難度＝所選角色總血量 +2），每成功 1 次所有所選角色回 1 血；若有人回血則你失去 1 血。",
-        imgs: [
+        "title": "Lv 15 解鎖（CD 3）",
+        "desc": "<b>CD 3 · 活力光環（Vitality Aura，4 靈氣 / 3 防）</b>：選擇 4 格內任意名其他守誓者／盟友進行附帶重抽的基礎檢定（難度＝所選角色總血量 +2），每成功 1 次所有所選角色回 1 血；若有人回血則你失去 1 血。<br><br><b>〔沿用 1 版未改動〕</b>：神聖戰士（Holy Warrior）。",
+        "imgs": [
           "assets/characters_v2/04_Priest_v2_08.jpg"
         ]
       },
       {
-        title: "同伴卡（Companion Cards · 初始 / Lv 5 / Lv 15）",
-        desc: "<b>初始 · 絕望祈禱 ／ 祝福</b>：3 格內基礎檢定治療（每場最多回 3 血）；或 3 格內所有友軍獲重抽／強化／防禦。<br><b>Lv 5 · 正義推進 ／ 聖柱與聖道</b>：移動 2 攻擊；或攻擊造成扣血獲防禦或重抽指示物。<br><b>Lv 15 · 活力光環 ／ 狂熱</b>：2 格內群補（每場限用 2 次）；或抽到雙重同數可再攻一次（最多再攻 2 次）。",
-        imgs: [
+        "title": "同伴卡（Companion Cards · 初始 / Lv 5 / Lv 15）",
+        "desc": "<b>初始 · 絕望祈禱 ／ 祝福</b>：3 格內基礎檢定治療（每場最多回 3 血）；或 3 格內所有友軍獲重抽／強化／防禦。<br><b>Lv 5 · 正義推進 ／ 聖柱與聖道</b>：移動 2 攻擊；或攻擊造成扣血獲防禦或重抽指示物。<br><b>Lv 15 · 活力光環 ／ 狂熱</b>：2 格內群補（每場限用 2 次）；或抽到雙重同數可再攻一次（最多再攻 2 次）。",
+        "imgs": [
           "assets/characters_v2/04_Priest_v2_11.jpg",
           "assets/characters_v2/04_Priest_v2_12.jpg",
           "assets/characters_v2/04_Priest_v2_13.jpg"
@@ -219,35 +239,45 @@ window.CHARACTER_V2 = {
     ]
   },
   "05_Ranger": {
-    summary: "樹人族遊俠（The A'Dendri Ranger）2 版共修正 5 張行動卡與 4 張橫式同伴卡（以下依等級與冷卻排列）。",
-    sections: [
+    "summary": "樹人族遊俠（The A'Dendri Ranger）2 版共修正 5 張行動卡與 4 張橫式同伴卡（以下依等級與冷卻排列）。",
+    "sections": [
       {
-        title: "Lv 1 初始牌（依 CD 1 → 2）",
-        desc: "<b>CD 1 · 遠距射擊（Longshot，4 靈氣 / 2 防）</b>：+2 射程；超過射程 4 後每多 1 格距離 +1 傷害（例如射程 6 時 +2 傷）。下方攻擊：-1 靈氣。<br><b>CD 1 · 速射（Quickshot，1 靈氣 / 1 防）</b>：此攻擊必須鎖定雜魚。下方：移動 2。<br><b>CD 2 · 彈射（Ricochet，4 靈氣 / 2 防）</b>：此攻擊可額外鎖定第一個目標 4 格內的另一名敵人，每個目標使本次攻擊 +2 傷害；攻擊一次並將傷害平分給所有目標。",
-        imgs: [
+        "title": "Lv 1 初始牌（依 CD 1 → 2）",
+        "desc": "<b>CD 1 · 遠距射擊（Longshot，4 靈氣 / 2 防）</b>：+2 射程；超過射程 4 後每多 1 格距離 +1 傷害（例如射程 6 時 +2 傷）。下方攻擊：-1 靈氣。<br><b>CD 1 · 速射（Quickshot，1 靈氣 / 1 防）</b>：此攻擊必須鎖定雜魚。下方：移動 2。<br><b>CD 2 · 彈射（Ricochet，4 靈氣 / 2 防）</b>：此攻擊可額外鎖定第一個目標 4 格內的另一名敵人，每個目標使本次攻擊 +2 傷害；攻擊一次並將傷害平分給所有目標。<br><br><b>〔沿用 1 版未改動〕</b>：0 費基礎牌、穿針引線（Thread the Needle）、森林之子（Child of the Forest）、多重射擊（Multishot）。",
+        "imgs": [
           "assets/characters_v2/05_Ranger_v2_03.jpg",
           "assets/characters_v2/05_Ranger_v2_04.jpg",
           "assets/characters_v2/05_Ranger_v2_05.jpg"
         ]
       },
       {
-        title: "Lv 2 解鎖（CD 1）",
-        desc: "<b>CD 1 · 雙重刺擊（Double Stab，3 靈氣 / 2 防）</b>：進行兩次近戰攻擊（須鎖定相鄰敵人），每次攻擊忽略最高數字的力量牌；僅其中一擊可觸發「決心規則」，力量值等同於你的弓。",
-        imgs: [
+        "title": "Lv 2 解鎖（CD 1）",
+        "desc": "<b>CD 1 · 雙重刺擊（Double Stab，3 靈氣 / 2 防）</b>：進行兩次近戰攻擊（須鎖定相鄰敵人），每次攻擊忽略最高數字的力量牌；僅其中一擊可觸發「決心規則」，力量值等同於你的弓。<br><br><b>〔沿用 1 版未改動〕</b>：琥珀匕首（Amber Daggers）、繳械射擊（Disarming Shot）。",
+        "imgs": [
           "assets/characters_v2/05_Ranger_v2_02.jpg"
         ]
       },
       {
-        title: "Lv 5 解鎖（CD 2）",
-        desc: "<b>CD 2 · 聲東擊西（Bait and Switch，4 靈氣 / 2 防）</b>：抽取敵方階段牌堆頂 2 張牌（遇到下一階段或背面有星號的牌即停），並依任意順序放回牌堆頂；下方：將敵人轉向任意方向。",
-        imgs: [
+        "title": "Lv 5 解鎖（CD 2）",
+        "desc": "<b>CD 2 · 聲東擊西（Bait and Switch，4 靈氣 / 2 防）</b>：抽取敵方階段牌堆頂 2 張牌（遇到下一階段或背面有星號的牌即停），並依任意順序放回牌堆頂；下方：將敵人轉向任意方向。<br><br><b>〔沿用 1 版未改動〕</b>：穿透箭（Piercing Arrow）。",
+        "imgs": [
           "assets/characters_v2/05_Ranger_v2_01.jpg"
         ]
       },
       {
-        title: "同伴卡（Companion Cards · 初始 / Lv 5 / Lv 10 / Lv 15）",
-        desc: "<b>初始 · 林間奔行 ／ 彈射</b>：花 1 戰鬥指示物從障礙物旁瞬移至 7 格內另一障礙物旁；或 4 格內雙目標任意分配傷害。<br><b>Lv 5 · 繳械射擊 ／ 速射</b>：3 格內非相鄰敵人減傷 3；或花 1 戰鬥指示物打 2 隻雜魚。<br><b>Lv 10 · 破甲錐箭 ／ 剝皮箭</b>：正好距離 2 打 4 防以上敵人視同防禦 -2；或側翼扣血疊流血。<br><b>Lv 15 · 繳械射擊 ／ 毒箭</b>：4 格內非相鄰敵人減傷 3；或觸發反應時令該敵人反應少抽 1 張力量牌。",
-        imgs: [
+        "title": "Lv 10 解鎖（全數沿用 1 版未改動）",
+        "desc": "<b>〔沿用 1 版未改動〕</b>：剝皮箭（Flensing Round）、破甲錐箭（Bodkin）。",
+        "imgs": []
+      },
+      {
+        "title": "Lv 15 解鎖（全數沿用 1 版未改動）",
+        "desc": "<b>〔沿用 1 版未改動〕</b>：箭雨（Hail of Arrows）、毒箭（Poison Tipped Arrow）。",
+        "imgs": []
+      },
+      {
+        "title": "同伴卡（Companion Cards · 初始 / Lv 5 / Lv 10 / Lv 15）",
+        "desc": "<b>初始 · 林間奔行 ／ 彈射</b>：花 1 戰鬥指示物從障礙物旁瞬移至 7 格內另一障礙物旁；或 4 格內雙目標任意分配傷害。<br><b>Lv 5 · 繳械射擊 ／ 速射</b>：3 格內非相鄰敵人減傷 3；或花 1 戰鬥指示物打 2 隻雜魚。<br><b>Lv 10 · 破甲錐箭 ／ 剝皮箭</b>：正好距離 2 打 4 防以上敵人視同防禦 -2；或側翼扣血疊流血。<br><b>Lv 15 · 繳械射擊 ／ 毒箭</b>：4 格內非相鄰敵人減傷 3；或觸發反應時令該敵人反應少抽 1 張力量牌。",
+        "imgs": [
           "assets/characters_v2/05_Ranger_v2_09.jpg",
           "assets/characters_v2/05_Ranger_v2_08.jpg",
           "assets/characters_v2/05_Ranger_v2_06.jpg",
@@ -257,44 +287,49 @@ window.CHARACTER_V2 = {
     ]
   },
   "06_Exile": {
-    summary: "傷疤部族流亡者（The Scar Tribe Exile）2 版共修正 8 張行動卡與 3 張橫式同伴卡（以下依等級與冷卻 1→3 排列）。",
-    sections: [
+    "summary": "傷疤部族流亡者（The Scar Tribe Exile）2 版共修正 8 張行動卡與 3 張橫式同伴卡（以下依等級與冷卻 1→3 排列）。",
+    "sections": [
       {
-        title: "Lv 1 初始牌（依 CD 2 → 3）",
-        desc: "<b>CD 2 · 收割（Reap，3 靈氣 / 2 防）</b>：範圍攻擊，鎖定前弧最多 3 個相鄰格；若擊殺任何敵人則獲得 1 枚強化指示物。<br><b>CD 2 · 咆哮衝鋒（Roaring Charge，2 靈氣 / 2 防）</b>：所有其他守誓者／盟友可移動 1 格；你可沿直線移動最多 4 格。<br><b>CD 3 · 天降死神（Death from Above，3 靈氣 / 3 防）</b>：僅可在相鄰障礙物時打出；將你的模型放置於 7 格內空格（不視為經過中間格），攻擊 +2 傷害。",
-        imgs: [
+        "title": "Lv 1 初始牌（依 CD 2 → 3）",
+        "desc": "<b>CD 2 · 收割（Reap，3 靈氣 / 2 防）</b>：範圍攻擊，鎖定前弧最多 3 個相鄰格；若擊殺任何敵人則獲得 1 枚強化指示物。<br><b>CD 2 · 咆哮衝鋒（Roaring Charge，2 靈氣 / 2 防）</b>：所有其他守誓者／盟友可移動 1 格；你可沿直線移動最多 4 格。<br><b>CD 3 · 天降死神（Death from Above，3 靈氣 / 3 防）</b>：僅可在相鄰障礙物時打出；將你的模型放置於 7 格內空格（不視為經過中間格），攻擊 +2 傷害。<br><br><b>〔沿用 1 版未改動〕</b>：0 費基礎牌、投擲武器（Weapon Throw）、跳劈（Leap Attack）、頭槌（Headbutt）。",
+        "imgs": [
           "assets/characters_v2/06_Exile_v2_06.jpg",
           "assets/characters_v2/06_Exile_v2_07.jpg",
           "assets/characters_v2/06_Exile_v2_02.jpg"
         ]
       },
       {
-        title: "Lv 2 解鎖（CD 2）",
-        desc: "<b>CD 2 · 破陣者（Line Breaker，4 靈氣 / 2 防）</b>：衝鋒貫穿 4（Charge Through 4），攻擊一次並套用至所有目標；若本次攻擊至少殺死 2 名敵人，獲得 2 靈氣。",
-        imgs: [
+        "title": "Lv 2 解鎖（CD 2）",
+        "desc": "<b>CD 2 · 破陣者（Line Breaker，4 靈氣 / 2 防）</b>：衝鋒貫穿 4（Charge Through 4），攻擊一次並套用至所有目標；若本次攻擊至少殺死 2 名敵人，獲得 2 靈氣。<br><br><b>〔沿用 1 版未改動〕</b>：爪擊／橫掠（Rake）。",
+        "imgs": [
           "assets/characters_v2/06_Exile_v2_05.jpg"
         ]
       },
       {
-        title: "Lv 5 解鎖（CD 1 → 2）",
-        desc: "<b>CD 1 · 拋擲（Hurl，3 靈氣 / 2 防）</b>：若目標為一般體型且失去生命，將其拋出最遠 2 格（即使已死亡）；若落點有其他敵人或障礙物則視為擊退碰撞，被砸到的敵人亦朝非向你的方向擊退 1 格。<br><b>CD 2 · 迅捷（Swiftness，1 靈氣 / 2 防）</b>：移動 3；下方：獲得 1 枚強化指示物。",
-        imgs: [
+        "title": "Lv 5 解鎖（CD 1 → 2）",
+        "desc": "<b>CD 1 · 拋擲（Hurl，3 靈氣 / 2 防）</b>：若目標為一般體型且失去生命，將其拋出最遠 2 格（即使已死亡）；若落點有其他敵人或障礙物則視為擊退碰撞，被砸到的敵人亦朝非向你的方向擊退 1 格。<br><b>CD 2 · 迅捷（Swiftness，1 靈氣 / 2 防）</b>：移動 3；下方：獲得 1 枚強化指示物。",
+        "imgs": [
           "assets/characters_v2/06_Exile_v2_04.jpg",
           "assets/characters_v2/06_Exile_v2_08.jpg"
         ]
       },
       {
-        title: "Lv 10 解鎖（CD 3）",
-        desc: "<b>CD 3 · 狂暴（Berserk，2 靈氣 / 3 防）</b>：打斷——在沒有打出任何打斷技的攻擊抽完傷害後，使傷害翻倍，但你失去 1 血。<br><b>CD 3 · 野性衝鋒（Feral Charge，4 靈氣 / 3 防）</b>：連鎖攻擊（範圍 2），最多選 4 目標；若本回合曾使用「撕裂傷口（Open Wounds）」，則改為連鎖範圍 3 且每多一目標不減少力量牌。",
-        imgs: [
+        "title": "Lv 10 解鎖（CD 3）",
+        "desc": "<b>CD 3 · 狂暴（Berserk，2 靈氣 / 3 防）</b>：打斷——在沒有打出任何打斷技的攻擊抽完傷害後，使傷害翻倍，但你失去 1 血。<br><b>CD 3 · 野性衝鋒（Feral Charge，4 靈氣 / 3 防）</b>：連鎖攻擊（範圍 2），最多選 4 目標；若本回合曾使用「撕裂傷口（Open Wounds）」，則改為連鎖範圍 3 且每多一目標不減少力量牌。",
+        "imgs": [
           "assets/characters_v2/06_Exile_v2_01.jpg",
           "assets/characters_v2/06_Exile_v2_03.jpg"
         ]
       },
       {
-        title: "同伴卡（Companion Cards · 初始 / Lv 5 / Lv 15）",
-        desc: "<b>初始 · 咆哮衝鋒 ／ 收割</b>：直線移動 5 且全體友軍移 1（須更接近敵人）；或前弧 3 格 AoE 擊殺獲強化指示物。<br><b>Lv 5 · 爪擊 ／ 頭槌</b>：側翼攻擊疊流血；或 0 靈氣打斷令相鄰敵人傷害 -3。<br><b>Lv 15 · 毀滅 ／ 頭槌</b>：花 1 戰鬥指示物連續 3 次攻擊（每次須高於前次傷害否則失手，僅 1 擊可觸發決心規則）；或 0 靈氣打斷減傷 3。",
-        imgs: [
+        "title": "Lv 15 解鎖（全數沿用 1 版未改動）",
+        "desc": "<b>〔沿用 1 版未改動〕</b>：劫掠衝鋒（Reave）、毀滅（Devastate）。",
+        "imgs": []
+      },
+      {
+        "title": "同伴卡（Companion Cards · 初始 / Lv 5 / Lv 15）",
+        "desc": "<b>初始 · 咆哮衝鋒 ／ 收割</b>：直線移動 5 且全體友軍移 1（須更接近敵人）；或前弧 3 格 AoE 擊殺獲強化指示物。<br><b>Lv 5 · 爪擊 ／ 頭槌</b>：側翼攻擊疊流血；或 0 靈氣打斷令相鄰敵人傷害 -3。<br><b>Lv 15 · 毀滅 ／ 頭槌</b>：花 1 戰鬥指示物連續 3 次攻擊（每次須高於前次傷害否則失手，僅 1 擊可觸發決心規則）；或 0 靈氣打斷減傷 3。",
+        "imgs": [
           "assets/characters_v2/06_Exile_v2_09.jpg",
           "assets/characters_v2/06_Exile_v2_10.jpg",
           "assets/characters_v2/06_Exile_v2_11.jpg"
@@ -307,14 +342,29 @@ window.CHARACTER_V2 = {
     "sections": [
       {
         "title": "Lv 1 初始牌（CD 1）",
-        "desc": "<b>CD 1 · 飛刀（Throwing Daggers，2 靈氣 / 2 防）</b>：徒手攻擊，射程 3。鎖定最多 2 名不同敵人，攻擊一次並套用至所有目標；若有任何敵人失去生命值，獲得 1 枚骷髏（致命指示物）。",
+        "desc": "<b>CD 1 · 飛刀（Throwing Daggers，2 靈氣 / 2 防）</b>：徒手攻擊，射程 3。鎖定最多 2 名不同敵人，攻擊一次並套用至所有目標；若有任何敵人失去生命值，獲得 1 枚骷髏（致命指示物）。<br><br><b>〔沿用 1 版未改動〕</b>：0 費基礎牌、隱匿（Concealment）、背刺（Backstab）、陰招（Low Blow）、煙霧彈（Smoke Bomb）、夜影毒（Nightshade）。",
         "imgs": [
           "assets/characters_v2/07_Cur_v2_02.jpg"
         ]
       },
       {
+        "title": "Lv 2 解鎖（全數沿用 1 版未改動）",
+        "desc": "<b>〔沿用 1 版未改動〕</b>：致盲（Blind）、閃避（Dodge）。",
+        "imgs": []
+      },
+      {
+        "title": "Lv 5 解鎖（全數沿用 1 版未改動）",
+        "desc": "<b>〔沿用 1 版未改動〕</b>：迅捷（Swiftness）、血棘（Bloodthorn）。",
+        "imgs": []
+      },
+      {
+        "title": "Lv 10 解鎖（全數沿用 1 版未改動）",
+        "desc": "<b>〔沿用 1 版未改動〕</b>：靶心（Bullseye）、千刀萬剮（Death of a Thousand Cuts）。",
+        "imgs": []
+      },
+      {
         "title": "Lv 15 解鎖（CD 3）",
-        "desc": "<b>CD 3 · 暗影奔襲（Shadow Run，4 靈氣 / 3 防）</b>：連鎖攻擊（範圍 2），最多可選擇 4 個目標；每有 2 名敵人失去任何生命值，便獲得 1 枚骷髏。",
+        "desc": "<b>CD 3 · 暗影奔襲（Shadow Run，4 靈氣 / 3 防）</b>：連鎖攻擊（範圍 2），最多可選擇 4 個目標；每有 2 名敵人失去任何生命值，便獲得 1 枚骷髏。<br><br><b>〔沿用 1 版未改動〕</b>：琥珀炸彈（Amber Bomb）。",
         "imgs": [
           "assets/characters_v2/07_Cur_v2_01.jpg"
         ]
@@ -335,7 +385,7 @@ window.CHARACTER_V2 = {
     "sections": [
       {
         "title": "Lv 1 初始牌（依 CD 2 → 3）",
-        "desc": "<b>CD 2 · 嘲諷（Taunt，0 靈氣 / 2 防）</b>：打斷——抽階段牌後或敵人移動前，強迫 6 格內一名敵人改為鎖定你（階段牌以你為目標結算）。下方攻擊：+2 傷害，+3 靈氣。<br><b>CD 3 · 代禱（Intercession，2 靈氣 / 3 防）</b>：選擇相鄰友軍進行附帶 1 次免費重抽的基礎檢定（難度＝目標血量 +2），每成功回 1 血；若對方回血則你失去 1 血（最多可用 1 枚重抽）。<br><b>CD 3 · 盾擊（Shield Bash，3 靈氣 / 3 防）</b>：擊退 3。若裝備盾牌則視為徒手攻擊但每點盾防獲得 1 顆白骰／牌；若目標撞到任何物體則獲得 1 靈氣。不需盾牌亦可施放。",
+        "desc": "<b>CD 2 · 嘲諷（Taunt，0 靈氣 / 2 防）</b>：打斷——抽階段牌後或敵人移動前，強迫 6 格內一名敵人改為鎖定你（階段牌以你為目標結算）。下方攻擊：+2 傷害，+3 靈氣。<br><b>CD 3 · 代禱（Intercession，2 靈氣 / 3 防）</b>：選擇相鄰友軍進行附帶 1 次免費重抽的基礎檢定（難度＝目標血量 +2），每成功回 1 血；若對方回血則你失去 1 血（最多可用 1 枚重抽）。<br><b>CD 3 · 盾擊（Shield Bash，3 靈氣 / 3 防）</b>：擊退 3。若裝備盾牌則視為徒手攻擊但每點盾防獲得 1 顆白骰／牌；若目標撞到任何物體則獲得 1 靈氣。不需盾牌亦可施放。<br><br><b>〔沿用 1 版未改動〕</b>：0 費基礎牌、守護（Guard）、1 費打斷技、橫掃（Sweep）。",
         "imgs": [
           "assets/characters_v2/08_Penitent_v2_04.jpg",
           "assets/characters_v2/08_Penitent_v2_02.jpg",
@@ -343,18 +393,28 @@ window.CHARACTER_V2 = {
         ]
       },
       {
+        "title": "Lv 2 解鎖（全數沿用 1 版未改動）",
+        "desc": "<b>〔沿用 1 版未改動〕</b>：擊退（Repel）、審判（Judgement）。",
+        "imgs": []
+      },
+      {
         "title": "Lv 5 解鎖（CD 2）",
-        "desc": "<b>CD 2 · 祝福（Blessing，3 靈氣 / 2 防）</b>：使 3 格內 2 名守誓者／盟友獲得 1 枚重抽、強化或防禦指示物；若你目前生命值為 3 或以下，此能力減 1 靈氣。（下方攻擊：+2 傷害）",
+        "desc": "<b>CD 2 · 祝福（Blessing，3 靈氣 / 2 防）</b>：使 3 格內 2 名守誓者／盟友獲得 1 枚重抽、強化或防禦指示物；若你目前生命值為 3 或以下，此能力減 1 靈氣。（下方攻擊：+2 傷害）<br><br><b>〔沿用 1 版未改動〕</b>：死亡之願（Death Wish）。",
         "imgs": [
           "assets/characters_v2/08_Penitent_v2_01.jpg"
         ]
       },
       {
         "title": "Lv 10 解鎖（CD 1）",
-        "desc": "<b>CD 1 · 狂熱（Zeal，3 靈氣 / 1 防）</b>：若此攻擊命中且抽到一張數字高於你目前生命值的力量牌，傷害結算後可立即再攻擊一次（每次使用限觸發 1 次）。",
+        "desc": "<b>CD 1 · 狂熱（Zeal，3 靈氣 / 1 防）</b>：若此攻擊命中且抽到一張數字高於你目前生命值的力量牌，傷害結算後可立即再攻擊一次（每次使用限觸發 1 次）。<br><br><b>〔沿用 1 版未改動〕</b>：干預（Intervention）。",
         "imgs": [
           "assets/characters_v2/08_Penitent_v2_05.jpg"
         ]
+      },
+      {
+        "title": "Lv 15 解鎖（全數沿用 1 版未改動）",
+        "desc": "<b>〔沿用 1 版未改動〕</b>：反射（Reflection）、正義打擊（Righteous Strike）。",
+        "imgs": []
       },
       {
         "title": "同伴卡（Companion Cards · Lv 5 & Lv 10）",
@@ -371,7 +431,7 @@ window.CHARACTER_V2 = {
     "sections": [
       {
         "title": "Lv 1 初始牌（依 CD 1 → 3）",
-        "desc": "<b>CD 1 · 背刺（Backstab，3 靈氣 / 2 防）</b>：若從目標後方攻擊，本次攻擊獲得強化 x5；若擊破部位，使一張卡牌流轉 2 次。<br><b>CD 2 · 一心同體（One Soul，1 靈氣 / 2 防）</b>：打斷——當 3 格內友方角色即將失去至少 1 血時，改由 3 格內另一名友方角色承受相同生命損失。（下方：移動 3）<br><b>CD 2 · 先見打擊（Prescient Strike，3 靈氣 / 2 防）</b>：攻擊前預測本次會命中或失手（使用重抽指示物前）；若猜中且命中則 +2 傷害，若猜中且失手則獲得 1 次重抽。<br><b>CD 3 · 預言成真（Prophetic Fulfilment，2 靈氣 / 3 防）</b>：選擇 3 格內自己或友軍並在其圖板放置顯示目前血量的骰子；下次再打出此牌時，若目標血量低於骰子顯示則回復 1 血並重新指定目標。",
+        "desc": "<b>CD 1 · 背刺（Backstab，3 靈氣 / 2 防）</b>：若從目標後方攻擊，本次攻擊獲得強化 x5；若擊破部位，使一張卡牌流轉 2 次。<br><b>CD 2 · 一心同體（One Soul，1 靈氣 / 2 防）</b>：打斷——當 3 格內友方角色即將失去至少 1 血時，改由 3 格內另一名友方角色承受相同生命損失。（下方：移動 3）<br><b>CD 2 · 先見打擊（Prescient Strike，3 靈氣 / 2 防）</b>：攻擊前預測本次會命中或失手（使用重抽指示物前）；若猜中且命中則 +2 傷害，若猜中且失手則獲得 1 次重抽。<br><b>CD 3 · 預言成真（Prophetic Fulfilment，2 靈氣 / 3 防）</b>：選擇 3 格內自己或友軍並在其圖板放置顯示目前血量的骰子；下次再打出此牌時，若目標血量低於骰子顯示則回復 1 血並重新指定目標。<br><br><b>〔沿用 1 版未改動〕</b>：0 費基礎牌、神射手（Deadeye Shot）。",
         "imgs": [
           "assets/characters_v2/09_Harbinger_v2_01.jpg",
           "assets/characters_v2/09_Harbinger_v2_05.jpg",
@@ -406,7 +466,7 @@ window.CHARACTER_V2 = {
       },
       {
         "title": "Lv 15 解鎖（CD 3）",
-        "desc": "<b>CD 3 · 命運編織者（Fateweaver，0 靈氣 / 3 防）</b>：打斷——敵人對 4 格內你或友軍抽傷害前，猜測受害者將失去的血量；減傷後若精準猜中，完全抵銷該次所有傷害。（下方攻擊：+2 靈氣）",
+        "desc": "<b>CD 3 · 命運編織者（Fateweaver，0 靈氣 / 3 防）</b>：打斷——敵人對 4 格內你或友軍抽傷害前，猜測受害者將失去的血量；減傷後若精準猜中，完全抵銷該次所有傷害。（下方攻擊：+2 靈氣）<br><br><b>〔沿用 1 版未改動〕</b>：御風行（Windwalk）。",
         "imgs": [
           "assets/characters_v2/09_Harbinger_v2_03.jpg"
         ]
@@ -427,7 +487,7 @@ window.CHARACTER_V2 = {
     "sections": [
       {
         "title": "Lv 1 初始牌（依 CD 1 → 3）",
-        "desc": "<b>CD 1 · 衝鋒野豬（Charging Boar，4 靈氣 / 1 防）</b>：直線移動 3（移至面對敵人鄰格須停下）；若移動至少 1 格才發動攻擊，野豬架式下附帶擊退 1。<br><b>CD 1 · 翻滾（Roll，1 靈氣 / 1 防）</b>：將模型置於相鄰敵人對側格（野豬架式下可使 3 費區 1 張牌流轉）。下方：移動 2。<br><b>CD 2 · 風揚斬（Winnowing Strike，4 靈氣 / 2 防）</b>：鎖定所有相鄰格；毒蛇架式下獲得 1 次重抽且 -1 靈氣。<br><b>CD 2 · 騾之凝視（Mule's Regard，0 靈氣 / 2 防）</b>：打斷——相鄰敵人抽傷害後，強迫其重抽任意 1 張牌（毒蛇架式下重抽 2 張）。<br><b>CD 3 · 順劈滑斬（Cleaving Slide，3 靈氣 / 3 防）</b>：直線移動正好 2 格，若未因佔據格受阻則發動衝鋒貫穿 4（野豬架式下獲得 1 次重抽）。<br><b>CD 3 · 大師格擋（Master Parry，1 靈氣 / 3 防）</b>：防禦打斷——獲得 3 藍盾，若在公牛架式下同時猜測敵人抽出的傷害量（誤差 2 以內則無視本次傷害）。",
+        "desc": "<b>CD 1 · 衝鋒野豬（Charging Boar，4 靈氣 / 1 防）</b>：直線移動 3（移至面對敵人鄰格須停下）；若移動至少 1 格才發動攻擊，野豬架式下附帶擊退 1。<br><b>CD 1 · 翻滾（Roll，1 靈氣 / 1 防）</b>：將模型置於相鄰敵人對側格（野豬架式下可使 3 費區 1 張牌流轉）。下方：移動 2。<br><b>CD 2 · 風揚斬（Winnowing Strike，4 靈氣 / 2 防）</b>：鎖定所有相鄰格；毒蛇架式下獲得 1 次重抽且 -1 靈氣。<br><b>CD 2 · 騾之凝視（Mule's Regard，0 靈氣 / 2 防）</b>：打斷——相鄰敵人抽傷害後，強迫其重抽任意 1 張牌（毒蛇架式下重抽 2 張）。<br><b>CD 3 · 順劈滑斬（Cleaving Slide，3 靈氣 / 3 防）</b>：直線移動正好 2 格，若未因佔據格受阻則發動衝鋒貫穿 4（野豬架式下獲得 1 次重抽）。<br><b>CD 3 · 大師格擋（Master Parry，1 靈氣 / 3 防）</b>：防禦打斷——獲得 3 藍盾，若在公牛架式下同時猜測敵人抽出的傷害量（誤差 2 以內則無視本次傷害）。<br><br><b>〔沿用 1 版未改動〕</b>：0 費基礎牌（Cut）。",
         "imgs": [
           "assets/characters_v2/10_Blade_v2_02.jpg",
           "assets/characters_v2/10_Blade_v2_10.jpg",
@@ -462,6 +522,11 @@ window.CHARACTER_V2 = {
         ]
       },
       {
+        "title": "Lv 15 解鎖（全數沿用 1 版未改動）",
+        "desc": "<b>〔沿用 1 版未改動〕</b>：15 級紅牌終結技。",
+        "imgs": []
+      },
+      {
         "title": "同伴卡（Companion Cards · Lv 10 & Lv 15）",
         "desc": "<b>Lv 10 · 劍舞 ／ 升牙斬</b>：花 1 戰鬥指示物移動 2 並連鎖範圍 2 最多 4 目標；或側翼攻擊視同防禦 -1。<br><b>Lv 15 · 劍之呼喚 ／ 衝鋒野豬</b>：正面互攻並花 2 戰鬥指示物偷取敵方攻擊的 2 張牌加入自己攻擊；或直線移動 3 附帶擊退 2。",
         "imgs": [
@@ -476,10 +541,15 @@ window.CHARACTER_V2 = {
     "sections": [
       {
         "title": "Lv 1 初始牌（CD 2）",
-        "desc": "<b>CD 2 · 生命綻放（Life Bloom，0 靈氣 / 2 防）</b>：你的遠古守護者失去所有生命值，其 2 格內所有角色獲得 2 靈氣（若為同伴則獲得 2 靈氣指示物）。中欄：在 3 格內放置 1 座哨兵。下方攻擊：射程 4，+2 靈氣。",
+        "desc": "<b>CD 2 · 生命綻放（Life Bloom，0 靈氣 / 2 防）</b>：你的遠古守護者失去所有生命值，其 2 格內所有角色獲得 2 靈氣（若為同伴則獲得 2 靈氣指示物）。中欄：在 3 格內放置 1 座哨兵。下方攻擊：射程 4，+2 靈氣。<br><br><b>〔沿用 1 版未改動〕</b>：0 費基礎牌、喚起哨兵（Raise Sentinel）、齊射（Volley）、雷霆巨像（Thundering Giant）、自然之怒（Nature's Fury）、荊棘（Thorns）。",
         "imgs": [
           "assets/characters_v2/11_GroveMaiden_v2_01.jpg"
         ]
+      },
+      {
+        "title": "Lv 2～Lv 15 解鎖（全數沿用 1 版未改動）",
+        "desc": "<b>Lv 2</b>：纏繞根鬚（Grasping Roots）、連根拔起（Uproot）<br><b>Lv 5</b>：生體護衛（Bioform Protector）、爆裂孢子（Exploding Spores）<br><b>Lv 10</b>：翠綠爆破（Verdant Explosion）、精華灌注（Essence Infusion）<br><b>Lv 15</b>：林地之歌（Grove Song）、針刺風暴（Needle Storm）",
+        "imgs": []
       }
     ]
   },
@@ -488,7 +558,7 @@ window.CHARACTER_V2 = {
     "sections": [
       {
         "title": "Lv 1 初始牌（依 CD 1 → 3）",
-        "desc": "<b>CD 1 · 獵手呼喚（Hunter's Call，4 靈氣 / 2 防）</b>：派 1～2 隻巨鷹至友軍，帶鷹的友軍可移動 2（移至敵人鄰格時鷹飛回），隨後你發動攻擊。<br><b>CD 1 · 激怒抓撓（Rile and Rake，3 靈氣 / 2 防）</b>：近戰移 1，派 2 隻巨鷹至目標並令其轉向任意方向；攻擊後目標疊流血（2 枚以上則移除 1 枚並扣 1 血）。<br><b>CD 2 · 緊攫（Clamp On，2 靈氣 / 2 防）</b>：射程 5 派 1～2 隻巨鷹至目標；友軍可移動 2x 鷹數，敵人則朝任意方向擊退 2x 鷹數。<br><b>CD 2 · 俯衝（Swoop，2 靈氣 / 2 防）</b>：射程 5 派 1 隻巨鷹攻擊敵人（使用你的力量但最多抽 4 張，必中且可暴擊）。<br><b>CD 3 · 飛羽齊襲（Flight of Feathers，4 靈氣 / 3 防）</b>：近戰移 1，同時鎖定 5 格內所有帶巨鷹敵人（最多抽 4 張，必中且可暴擊）。<br><b>CD 3 · 阻撓（Hinder，0 靈氣 / 3 防）</b>：打斷——5 格內敵人對友軍抽傷害後，目標身上每有 1 隻巨鷹便重抽 1 張力量牌；若抽到空白則 1 隻巨鷹飛回。",
+        "desc": "<b>CD 1 · 獵手呼喚（Hunter's Call，4 靈氣 / 2 防）</b>：派 1～2 隻巨鷹至友軍，帶鷹的友軍可移動 2（移至敵人鄰格時鷹飛回），隨後你發動攻擊。<br><b>CD 1 · 激怒抓撓（Rile and Rake，3 靈氣 / 2 防）</b>：近戰移 1，派 2 隻巨鷹至目標並令其轉向任意方向；攻擊後目標疊流血（2 枚以上則移除 1 枚並扣 1 血）。<br><b>CD 2 · 緊攫（Clamp On，2 靈氣 / 2 防）</b>：射程 5 派 1～2 隻巨鷹至目標；友軍可移動 2x 鷹數，敵人則朝任意方向擊退 2x 鷹數。<br><b>CD 2 · 俯衝（Swoop，2 靈氣 / 2 防）</b>：射程 5 派 1 隻巨鷹攻擊敵人（使用你的力量但最多抽 4 張，必中且可暴擊）。<br><b>CD 3 · 飛羽齊襲（Flight of Feathers，4 靈氣 / 3 防）</b>：近戰移 1，同時鎖定 5 格內所有帶巨鷹敵人（最多抽 4 張，必中且可暴擊）。<br><b>CD 3 · 阻撓（Hinder，0 靈氣 / 3 防）</b>：打斷——5 格內敵人對友軍抽傷害後，目標身上每有 1 隻巨鷹便重抽 1 張力量牌；若抽到空白則 1 隻巨鷹飛回。<br><br><b>〔沿用 1 版未改動〕</b>：0 費基礎牌（Wind Strike）。",
         "imgs": [
           "assets/characters_v2/12_Huntress_v2_09.jpg",
           "assets/characters_v2/12_Huntress_v2_10.jpg",
@@ -500,7 +570,7 @@ window.CHARACTER_V2 = {
       },
       {
         "title": "Lv 2 解鎖（依 CD 1 → 3）",
-        "desc": "<b>CD 1 · 哨箭（Whistling Arrow，3 靈氣 / 2 防）</b>：需弓。鎖定帶鷹敵人，目標身上每有 1 隻巨鷹本次攻擊便強化 x1，隨後巨鷹飛回。<br><b>CD 3 · 雙重打擊（Tandem Strike，3 靈氣 / 3 防）</b>：近戰移 1，派 1～2 隻巨鷹至目標；若目標扣血，目標身上每有 1 隻巨鷹便獲得 1 枚強化指示物。",
+        "desc": "<b>CD 1 · 哨箭（Whistling Arrow，3 靈氣 / 2 防）</b>：需弓。鎖定帶鷹敵人，目標身上每有 1 隻巨鷹本次攻擊便強化 x1，隨後巨鷹飛回。<br><b>CD 3 · 雙重打擊（Tandem Strike，3 靈氣 / 3 防）</b>：近戰移 1，派 1～2 隻巨鷹至目標；若目標扣血，目標身上每有 1 隻巨鷹便獲得 1 枚強化指示物。<br><br><b>〔沿用 1 版未改動〕</b>：跳劈（Leap Attack）、尖刺陷阱（Spike Trap）。（註：Tandem Strike 在 2 版調整至 2 級解鎖）",
         "imgs": [
           "assets/characters_v2/12_Huntress_v2_14.jpg",
           "assets/characters_v2/12_Huntress_v2_12.jpg"
@@ -508,7 +578,7 @@ window.CHARACTER_V2 = {
       },
       {
         "title": "Lv 5 解鎖（CD 2）",
-        "desc": "<b>CD 2 · 鷹眼射擊（Eagle Eye Shot，3 靈氣 / 2 防）</b>：需弓。+2 射程；從任意處派最多 2 隻巨鷹至目標，若目標已有 2 隻鷹則獲 1 次重抽。<br><b>CD 2 · 側翼突襲（Flank Attack，3 靈氣 / 2 防）</b>：需近戰武器。身上每有 1 隻鷹直線移動 2 格；從任意處派最多 2 隻鷹至目標，側翼攻擊每隻鷹 +2 傷害。<br><b>CD 2 · 羽翼庇護（Under the Wing，0 靈氣 / 2 防）</b>：打斷——5 格內敵人對友軍抽傷害前，派 1 隻鷹至友軍使其獲得 2 藍盾；下方可派 1 鷹或移動。",
+        "desc": "<b>CD 2 · 鷹眼射擊（Eagle Eye Shot，3 靈氣 / 2 防）</b>：需弓。+2 射程；從任意處派最多 2 隻巨鷹至目標，若目標已有 2 隻鷹則獲 1 次重抽。<br><b>CD 2 · 側翼突襲（Flank Attack，3 靈氣 / 2 防）</b>：需近戰武器。身上每有 1 隻鷹直線移動 2 格；從任意處派最多 2 隻鷹至目標，側翼攻擊每隻鷹 +2 傷害。<br><b>CD 2 · 羽翼庇護（Under the Wing，0 靈氣 / 2 防）</b>：打斷——5 格內敵人對友軍抽傷害前，派 1 隻鷹至友軍使其獲得 2 藍盾；下方可派 1 鷹或移動。<br><br><b>〔沿用 1 版未改動〕</b>：琥珀炸藥包（Amber Satchel Charge）。",
         "imgs": [
           "assets/characters_v2/12_Huntress_v2_02.jpg",
           "assets/characters_v2/12_Huntress_v2_05.jpg",
@@ -517,7 +587,7 @@ window.CHARACTER_V2 = {
       },
       {
         "title": "Lv 10 解鎖（CD 1 · 含 2 版新卡）",
-        "desc": "<b>CD 1 · 啄眼（Eye Gouge，0 靈氣 / 1 防）</b>：打斷——友軍對 5 格內敵人抽傷害前，派 1 隻鷹至目標使其本次攻擊防禦 -1。<br><b>CD 1 · 獵手印記（Hunter's Mark，1 靈氣 / 2 防）[2 版新卡]</b>：需弓。派 1 隻巨鷹至 5 格內目標並在其身上放置 1 枚重抽指示物；任何守誓者攻擊該目標時皆可使用並移除該指示物。",
+        "desc": "<b>CD 1 · 啄眼（Eye Gouge，0 靈氣 / 1 防）</b>：打斷——友軍對 5 格內敵人抽傷害前，派 1 隻鷹至目標使其本次攻擊防禦 -1。<br><b>CD 1 · 獵手印記（Hunter's Mark，1 靈氣 / 2 防）[2 版新卡]</b>：需弓。派 1 隻巨鷹至 5 格內目標並在其身上放置 1 枚重抽指示物；任何守誓者攻擊該目標時皆可使用並移除該指示物。<br><br><b>〔沿用 1 版未改動〕</b>：突刺（Lunge）。（註：1 版 Piercing Arrow 已移除，由 Hunter's Mark 取代）",
         "imgs": [
           "assets/characters_v2/12_Huntress_v2_03.jpg",
           "assets/characters_v2/12_Huntress_v2_08.jpg"
@@ -525,7 +595,7 @@ window.CHARACTER_V2 = {
       },
       {
         "title": "Lv 15 解鎖（CD 3）",
-        "desc": "<b>CD 3 · 獵鷹連擊（Falcon Strike，4 靈氣 / 3 防）</b>：近戰移 1。連鎖攻擊（範圍 2；持弓改為遠程連鎖攻擊），預設最多 4 目標，每攻擊一名帶巨鷹的敵人可再多連鎖 1 名目標，隨後巨鷹飛回。",
+        "desc": "<b>CD 3 · 獵鷹連擊（Falcon Strike，4 靈氣 / 3 防）</b>：近戰移 1。連鎖攻擊（範圍 2；持弓改為遠程連鎖攻擊），預設最多 4 目標，每攻擊一名帶巨鷹的敵人可再多連鎖 1 名目標，隨後巨鷹飛回。<br><br><b>〔沿用 1 版未改動〕</b>：死亡俯衝（Death Dive）。",
         "imgs": [
           "assets/characters_v2/12_Huntress_v2_04.jpg"
         ]
