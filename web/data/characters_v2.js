@@ -1,21 +1,26 @@
 window.CHARACTER_V2 = {
   "00_Intro": {
-    summary: "2 版（2nd Edition）針對 1 版玩家能力卡、同伴卡、牧師玩家圖板與規則書進行了全面平衡修正與文字釐清。",
-    sections: [
+    "summary": "2 版（2nd Edition）升級包針對 1 版玩家能力卡、同伴卡、牧師玩家圖板、遭遇戰牌堆、遭遇戰圖板與規則書進行了全面平衡修正與文字釐清（以下為官方 Setup 指南完整改動明細）。",
+    "sections": [
       {
-        title: "規則書重大改動",
-        desc: "<b>火格（Fire Tiles, ERB p9）</b>、<b>戰利品（Looting, ERB p24）</b>、<b>反應（Reactions, ERB p15）</b>、<b>女獵手巨鷹（Huntress Falcons, ERB p32）</b>（多張卡射程由 4 提升為 5）。",
-        imgs: []
+        "title": "1. 遭遇牌堆與遭遇圖板改動（Setup p.1–2）",
+        "desc": "<b>第 11 章遭遇牌堆</b>：從牌堆中移除任意 1 張牌。<br><b>第 15 章遭遇牌堆（Stage 3）</b>：移除以「Move 4 North West」結尾的『Wyrm Tail』，替換為『The Last Dance』。<br><b>第 7 章遭遇牌堆（Stage 3）</b>：移除以「Move 3 South West」結尾的『Condemnation』，替換為任一張『Blood Rain』。<br><b>遭遇戰圖板＆特殊規則圖板</b>：將編號相同的遭遇戰圖板與特殊規則圖板替換為新版（注意勿將同編號的遭遇戰圖板與特殊規則圖板搞混），並依貼紙表貼上遭遇書修正貼紙。",
+        "imgs": []
       },
       {
-        title: "移除與新增能力卡",
-        desc: "<b>劍士（Blade）</b>：移除 Weapon Throw、Cross Cut、Somersault → 新增 <b>Flurry</b>（2 級）、<b>Piercing Fang</b>（5 級）、<b>Unbalance</b>（5 級）。<br><b>女獵手（Huntress）</b>：移除 Piercing Arrow → 新增 <b>Hunter's Mark</b>（10 級）。",
-        imgs: []
+        "title": "2. 玩家能力卡移除與新增（Setup p.1）",
+        "desc": "<b>劍士（The Blade）</b>：移除 1 版的 <b>Weapon Throw</b>、<b>Cross Cut</b>、<b>Somersault</b>（共 3 張）→ 新增 2 版全新卡 <b>Flurry（疾風連斬，2 級）</b>、<b>Piercing Fang（穿刺利牙，5 級）</b>、<b>Unbalance（失衡，5 級）</b>。<br><b>女獵手（The Huntress）</b>：移除 1 版的 <b>Piercing Arrow</b> → 新增 2 版全新卡 <b>Hunter's Mark（獵手印記，10 級）</b>。<br><b>其餘升級包卡牌</b>：皆為與 1 版同名的平衡修正與文字釐清卡（共計 119 張卡面更新，包含多張橫式雙面同伴卡）。",
+        "imgs": []
       },
       {
-        title: "玩家圖板替換",
-        desc: "<b>牧師（The Priest）</b>需替換為 2 版新版玩家圖板。",
-        imgs: []
+        "title": "3. 牧師玩家圖板與各職業主要調整方向",
+        "desc": "<b>牧師（The Priest）</b>：需將整張 1 版玩家圖板替換為 2 版新版圖板；多張治療與保護牌（如 Prayer of Protection、Desperate Prayer、Vitality Aura）修正了耗血條件與難度公式。<br><b>女獵手（Huntress）</b>：多張巨鷹技能的射程由 Range 4 全面提升為 <b>Range 5</b>，提升遠程調度彈性。<br><b>流亡者／劍士／滑頭／預兆者／典獄長</b>：許多橫式同伴卡統一加上「每輪每項特殊能力限用 1 次」的標準化限制，並修正連鎖攻擊目標數、重抽次數與防禦扣減數值。",
+        "imgs": []
+      },
+      {
+        "title": "4. 規則書重大改動項目（Setup p.2）",
+        "desc": "官方特別標註新版故事書與遭遇戰規則書（ERB）有以下 4 項重大規則變動，建議開局前對照新版規則書確認：<br>• <b>火格（Fire Tiles）</b>：ERB 第 9 頁<br>• <b>反應（Reactions）</b>：ERB 第 15 頁<br>• <b>戰利品（Looting）</b>：ERB 第 24 頁<br>• <b>女獵手巨鷹（Huntress Falcons）</b>：ERB 第 32 頁",
+        "imgs": []
       }
     ]
   },
