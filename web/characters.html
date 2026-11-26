@@ -630,10 +630,11 @@
       }
 
       const v2 = window.CHARACTER_V2 && window.CHARACTER_V2[c.id];
+      const v2Count = v2 && v2.sections ? v2.sections.reduce((a, s) => a + (s.imgs ? s.imgs.length : 0), 0) : 0;
       const editionTabsHtml = `
         <div class="edition-tabs">
           <button class="edition-btn ${currentEdition === "v1" ? "active" : ""}" onclick="switchEdition('v1')">舊版（1st Edition）</button>
-          <button class="edition-btn ${currentEdition === "v2" ? "active" : ""}" onclick="switchEdition('v2')">新版（2nd Edition 修正版${v2 && v2.cards.length ? ` · ${v2.cards.length} 張` : ""}）</button>
+          <button class="edition-btn ${currentEdition === "v2" ? "active" : ""}" onclick="switchEdition('v2')">新版（2nd Edition 修正版${v2Count ? ` · ${v2Count} 張` : ""}）</button>
         </div>
       `;
 
@@ -649,18 +650,24 @@
             <div>${v2.summary}</div>
           </div>
           <div class="levels-list">
-            ${v2.changes.map(([title, desc]) => `<div class="level-row"><strong>${title}：</strong>${desc}</div>`).join("")}
-          </div>
-          ${v2.cards.length ? `
-            <h3 class="gallery-title">2 版修正／新增卡圖（點擊圖片可放大，共 ${v2.cards.length} 張）</h3>
-            <div class="gallery">
-              ${v2.cards.map(src => `
-                <div class="gallery-item" onclick="openLightbox('${src}')">
-                  <img src="${src}" loading="lazy" alt="${c.name} 2nd Ed" />
+            ${v2.sections.map(sec => `
+              <div class="level-row">
+                <div style="margin-bottom:${sec.imgs && sec.imgs.length ? "12px" : "0"};">
+                  <strong>${sec.title}</strong>
+                  <div style="margin-top:6px;">${sec.desc}</div>
                 </div>
-              `).join("")}
-            </div>
-          ` : ""}
+                ${sec.imgs && sec.imgs.length ? `
+                  <div class="gallery">
+                    ${sec.imgs.map(src => `
+                      <div class="gallery-item" onclick="openLightbox('${src}')">
+                        <img src="${src}" loading="lazy" alt="${sec.title}" />
+                      </div>
+                    `).join("")}
+                  </div>
+                ` : ""}
+              </div>
+            `).join("")}
+          </div>
         `;
         return;
       }
