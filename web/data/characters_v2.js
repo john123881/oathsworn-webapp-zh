@@ -466,9 +466,10 @@ window.CHARACTER_V2 = {
       },
       {
         "title": "Lv 15 解鎖（CD 3）",
-        "desc": "<b>CD 3 · 命運編織者（Fateweaver，0 靈氣 / 3 防）</b>：打斷——敵人對 4 格內你或友軍抽傷害前，猜測受害者將失去的血量；減傷後若精準猜中，完全抵銷該次所有傷害。（下方攻擊：+2 靈氣）<br><br><b>〔沿用 1 版未改動〕</b>：御風行（Windwalk）。",
+        "desc": "<b>CD 3 · 命運編織者（Fateweaver，0 靈氣 / 3 防）</b>：打斷——敵人對 4 格內你或友軍抽傷害前，猜測受害者將失去的血量；減傷後若精準猜中，完全抵銷該次所有傷害。（下方攻擊：+2 靈氣）<br><br><b>CD 3 · 御風行（Windwalk，5 靈氣 / 3 防）〔沿用 1 版未改動〕</b>：連鎖攻擊（範圍 3），最多可選擇 5 個目標。",
         "imgs": [
-          "assets/characters_v2/09_Harbinger_v2_03.jpg"
+          "assets/characters_v2/09_Harbinger_v2_03.jpg",
+          "assets/characters_v2/09_Harbinger_v1_windwalk.png"
         ]
       },
       {
